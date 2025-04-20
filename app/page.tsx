@@ -11,7 +11,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
+          <Link href="/" className="flex items-center gap-2 font-heading">
             <Leaf className="h-6 w-6 text-green-600" />
             <span className="text-xl">Rootsy</span>
           </Link>
@@ -69,17 +69,16 @@ export default function Home() {
       </header>
       <main className="flex-1">
         <section className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-green-800/50 z-10" />
           <Image
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Plants"
+            src="/images/topiary-hero.png"
+            alt="Elegant topiary plant"
             width={1200}
             height={600}
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[500px] object-cover object-center scale-90"
             priority
           />
-          <div className="container relative z-20 flex flex-col items-center justify-center text-center py-20 text-white">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          <div className="container absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+            <h1 className="text-4xl font-heading tracking-tight sm:text-5xl md:text-6xl">
               Your Plants Deserve the Best Care
             </h1>
             <p className="mt-6 max-w-md text-lg">
@@ -89,7 +88,7 @@ export default function Home() {
               <Button size="lg" className="bg-green-600 hover:bg-green-700">
                 Find a Plant Sitter
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700">
                 Shop Plants
               </Button>
             </div>
@@ -99,7 +98,7 @@ export default function Home() {
         <section className="container py-12 md:py-16">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight">How It Works</h2>
+              <h2 className="text-3xl font-heading tracking-tight">How It Works</h2>
               <p className="text-muted-foreground mt-2">Simple steps to get started with Rootsy</p>
             </div>
           </div>
@@ -108,7 +107,7 @@ export default function Home() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-4">
                 <Search className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Find</h3>
+              <h3 className="text-xl font-heading mb-2">Find</h3>
               <p className="text-muted-foreground">
                 Browse our marketplace for plants or find reliable plant sitters in your area.
               </p>
@@ -117,7 +116,7 @@ export default function Home() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-4">
                 <ShoppingBag className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Book or Buy</h3>
+              <h3 className="text-xl font-heading mb-2">Book or Buy</h3>
               <p className="text-muted-foreground">
                 Schedule plant sitting services or purchase plants directly through our secure platform.
               </p>
@@ -126,7 +125,7 @@ export default function Home() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-4">
                 <Leaf className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Enjoy</h3>
+              <h3 className="text-xl font-heading mb-2">Enjoy</h3>
               <p className="text-muted-foreground">
                 Relax knowing your plants are in good hands or enjoy your new green additions.
               </p>
@@ -138,41 +137,109 @@ export default function Home() {
           <div className="container">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
               <div>
-                <h2 className="text-3xl font-bold tracking-tight">Explore Our Services</h2>
+                <h2 className="text-3xl font-heading tracking-tight">Explore Our Services</h2>
                 <p className="text-muted-foreground mt-2">Find what you need for your plant journey</p>
               </div>
             </div>
             <Tabs defaultValue="marketplace" className="w-full">
               <TabsList className="mb-8">
-                <TabsTrigger value="marketplace">Plant Marketplace</TabsTrigger>
-                <TabsTrigger value="plantsitting">Plant Sitting</TabsTrigger>
+                <TabsTrigger value="marketplace" className="font-heading">
+                  Plant Marketplace
+                </TabsTrigger>
+                <TabsTrigger value="plantsitting" className="font-heading">
+                  Plant Sitting
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="marketplace">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {[1, 2, 3, 4].map((i) => (
-                    <Link href={`/plant/${i}`} key={i} className="group">
-                      <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
-                        <div className="relative aspect-square">
-                          <Image
-                            src={`/placeholder.svg?height=300&width=300&text=Plant+${i}`}
-                            alt={`Plant ${i}`}
-                            fill
-                            className="object-cover transition-transform group-hover:scale-105"
-                          />
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-medium">Monstera Deliciosa</h3>
-                          <div className="mt-1 flex items-center justify-between">
-                            <span className="font-semibold text-green-600">$29.99</span>
-                            <div className="flex items-center">
-                              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                              <span className="ml-1 text-sm text-muted-foreground">4.8</span>
-                            </div>
+                  <Link href="/plant/1" className="group">
+                    <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                      <div className="relative aspect-square">
+                        <Image
+                          src="/images/monstera.png"
+                          alt="Monstera Deliciosa"
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-heading">Monstera Deliciosa</h3>
+                        <div className="mt-1 flex items-center justify-between">
+                          <span className="font-semibold text-green-600">$29.99</span>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <span className="ml-1 text-sm text-muted-foreground">4.8</span>
                           </div>
                         </div>
                       </div>
-                    </Link>
-                  ))}
+                    </div>
+                  </Link>
+                  <Link href="/plant/2" className="group">
+                    <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                      <div className="relative aspect-square">
+                        <Image
+                          src="/images/snake-plant.png"
+                          alt="Snake Plant"
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-heading">Snake Plant</h3>
+                        <div className="mt-1 flex items-center justify-between">
+                          <span className="font-semibold text-green-600">$24.99</span>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <span className="ml-1 text-sm text-muted-foreground">4.7</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  <Link href="/plant/3" className="group">
+                    <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                      <div className="relative aspect-square">
+                        <Image
+                          src="/images/fiddle-leaf.png"
+                          alt="Fiddle Leaf Fig"
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-heading">Fiddle Leaf Fig</h3>
+                        <div className="mt-1 flex items-center justify-between">
+                          <span className="font-semibold text-green-600">$34.99</span>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <span className="ml-1 text-sm text-muted-foreground">4.6</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  <Link href="/plant/4" className="group">
+                    <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                      <div className="relative aspect-square">
+                        <Image
+                          src="/images/pothos.png"
+                          alt="Pothos"
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-heading">Pothos</h3>
+                        <div className="mt-1 flex items-center justify-between">
+                          <span className="font-semibold text-green-600">$19.99</span>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <span className="ml-1 text-sm text-muted-foreground">4.9</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
                 <div className="mt-8 flex justify-center">
                   <Link href="/marketplace">
@@ -185,40 +252,87 @@ export default function Home() {
               </TabsContent>
               <TabsContent value="plantsitting">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
-                      <div className="flex items-start gap-4">
-                        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
-                          <Image
-                            src={`/placeholder.svg?height=64&width=64&text=Sitter+${i}`}
-                            alt={`Plant Sitter ${i}`}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold">Sarah Johnson</h3>
-                          <div className="mt-1 flex items-center">
-                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                            <span className="ml-1 text-sm text-muted-foreground">4.9 (24 reviews)</span>
-                          </div>
-                          <div className="mt-1 flex items-center text-sm text-muted-foreground">
-                            <MapPin className="mr-1 h-4 w-4" />
-                            <span>2.5 miles away</span>
-                          </div>
-                        </div>
+                  <div className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                        <Image src="/images/sitter-1.png" alt="Plant Sitter 1" fill className="object-cover" />
                       </div>
-                      <p className="mt-4 text-sm text-muted-foreground">
-                        Plant enthusiast with 5+ years of experience caring for all types of indoor plants.
-                      </p>
-                      <div className="mt-4 flex justify-between items-center">
-                        <span className="font-medium text-green-600">$15/day</span>
-                        <Link href={`/sitter/${i}`}>
-                          <Button size="sm">View Profile</Button>
-                        </Link>
+                      <div>
+                        <h3 className="font-heading">Sarah Johnson</h3>
+                        <div className="mt-1 flex items-center">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="ml-1 text-sm text-muted-foreground">4.9 (24 reviews)</span>
+                        </div>
+                        <div className="mt-1 flex items-center text-sm text-muted-foreground">
+                          <MapPin className="mr-1 h-4 w-4" />
+                          <span>2.5 miles away</span>
+                        </div>
                       </div>
                     </div>
-                  ))}
+                    <p className="mt-4 text-sm text-muted-foreground">
+                      Plant enthusiast with 5+ years of experience caring for all types of indoor plants.
+                    </p>
+                    <div className="mt-4 flex justify-between items-center">
+                      <span className="font-medium text-green-600">$15/day</span>
+                      <Link href="/sitter/1">
+                        <Button size="sm">View Profile</Button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                        <Image src="/images/sitter-2.png" alt="Plant Sitter 2" fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading">Michael Chen</h3>
+                        <div className="mt-1 flex items-center">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="ml-1 text-sm text-muted-foreground">4.8 (18 reviews)</span>
+                        </div>
+                        <div className="mt-1 flex items-center text-sm text-muted-foreground">
+                          <MapPin className="mr-1 h-4 w-4" />
+                          <span>3.2 miles away</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm text-muted-foreground">
+                      Certified botanist specializing in tropical plants and succulents.
+                    </p>
+                    <div className="mt-4 flex justify-between items-center">
+                      <span className="font-medium text-green-600">$18/day</span>
+                      <Link href="/sitter/2">
+                        <Button size="sm">View Profile</Button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                        <Image src="/images/sitter-3.png" alt="Plant Sitter 3" fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading">Emma Rodriguez</h3>
+                        <div className="mt-1 flex items-center">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="ml-1 text-sm text-muted-foreground">4.7 (31 reviews)</span>
+                        </div>
+                        <div className="mt-1 flex items-center text-sm text-muted-foreground">
+                          <MapPin className="mr-1 h-4 w-4" />
+                          <span>1.8 miles away</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm text-muted-foreground">
+                      Passionate plant lover with expertise in rare and exotic species.
+                    </p>
+                    <div className="mt-4 flex justify-between items-center">
+                      <span className="font-medium text-green-600">$16/day</span>
+                      <Link href="/sitter/3">
+                        <Button size="sm">View Profile</Button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
                 <div className="mt-8 flex justify-center">
                   <Link href="/plantsitting">
@@ -236,36 +350,56 @@ export default function Home() {
         <section className="container py-12 md:py-16">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight">Join Our Community</h2>
+              <h2 className="text-3xl font-heading tracking-tight">Join Our Community</h2>
               <p className="text-muted-foreground mt-2">Connect with plant lovers and experts</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="text-xl font-semibold mb-4">Become a Plant Sitter</h3>
-              <p className="text-muted-foreground mb-6">
-                Turn your plant passion into income. Set your own schedule and rates while helping fellow plant lovers.
-              </p>
-              <Link href="/become-sitter">
-                <Button className="bg-green-600 hover:bg-green-700">Get Started</Button>
-              </Link>
+            <div className="rounded-lg border bg-white p-6 relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-xl font-heading mb-4">Become a Plant Sitter</h3>
+                <p className="text-muted-foreground mb-6">
+                  Turn your plant passion into income. Set your own schedule and rates while helping fellow plant
+                  lovers.
+                </p>
+                <Link href="/become-sitter">
+                  <Button className="bg-green-600 hover:bg-green-700">Get Started</Button>
+                </Link>
+              </div>
+              <div className="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-20">
+                <Image src="/images/plant-care.png" alt="Plant Care" fill className="object-contain object-bottom" />
+              </div>
             </div>
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="text-xl font-semibold mb-4">Sell Your Plants</h3>
-              <p className="text-muted-foreground mb-6">
-                Have extra plants or propagations? List them on our marketplace and connect with buyers in your area.
-              </p>
-              <Link href="/become-seller">
-                <Button className="bg-green-600 hover:bg-green-700">Start Selling</Button>
-              </Link>
+            <div className="rounded-lg border bg-white p-6 relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-xl font-heading mb-4">Sell Your Plants</h3>
+                <p className="text-muted-foreground mb-6">
+                  Have extra plants or propagations? List them on our marketplace and connect with buyers in your area.
+                </p>
+                <Link href="/become-seller">
+                  <Button className="bg-green-600 hover:bg-green-700">Start Selling</Button>
+                </Link>
+              </div>
+              <div className="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-20">
+                <Image
+                  src="/images/plant-seller.png"
+                  alt="Plant Seller"
+                  fill
+                  className="object-contain object-bottom"
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-green-900 text-white py-12 md:py-16">
-          <div className="container">
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image src="/images/plant-community.png" alt="Plant Community" fill className="object-cover opacity-10" />
+          </div>
+          <div className="absolute inset-0 bg-green-900 opacity-90 z-1"></div>
+          <div className="container relative z-10 text-white">
             <div className="flex flex-col items-center text-center">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">Stay Connected</h2>
+              <h2 className="text-3xl font-heading tracking-tight mb-4">Stay Connected</h2>
               <p className="max-w-md mb-8">
                 Subscribe to our newsletter for plant care tips, exclusive offers, and community updates.
               </p>
@@ -285,7 +419,7 @@ export default function Home() {
         <div className="container py-8 md:py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Rootsy</h3>
+              <h3 className="font-heading mb-4">Rootsy</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -305,7 +439,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Services</h3>
+              <h3 className="font-heading mb-4">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -325,7 +459,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
+              <h3 className="font-heading mb-4">Support</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/help" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -345,7 +479,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-heading mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -368,7 +502,7 @@ export default function Home() {
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
               <Leaf className="h-5 w-5 text-green-600" />
-              <span className="font-semibold">Rootsy</span>
+              <span className="font-heading">Rootsy</span>
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

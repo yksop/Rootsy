@@ -16,7 +16,7 @@ export default function PlantsittingPage() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
+          <Link href="/" className="flex items-center gap-2 font-heading">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -104,10 +104,27 @@ export default function PlantsittingPage() {
         </div>
       </header>
       <main className="flex-1">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-green-800/50 z-10" />
+          <Image
+            src="/images/plant-sitter-bg.png"
+            alt="Plant Sitting"
+            width={1200}
+            height={400}
+            className="w-full h-[300px] object-cover"
+          />
+          <div className="container relative z-20 flex flex-col items-center justify-center text-center py-12 text-white">
+            <h1 className="text-3xl font-heading tracking-tight sm:text-4xl">Find the Perfect Plant Sitter</h1>
+            <p className="mt-4 max-w-md text-lg">
+              Connect with experienced plant sitters who will care for your green friends while you're away
+            </p>
+          </div>
+        </div>
+
         <div className="container py-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Plant Sitting Services</h1>
+              <h2 className="text-2xl font-heading tracking-tight">Plant Sitting Services</h2>
               <p className="text-muted-foreground mt-1">Find reliable plant sitters in your area</p>
             </div>
             <div className="flex items-center gap-2 w-full md:w-auto">
@@ -129,7 +146,7 @@ export default function PlantsittingPage() {
                   </SheetHeader>
                   <div className="grid gap-6 py-6">
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Price Range (per day)</h3>
+                      <h3 className="text-sm font-medium font-heading">Price Range (per day)</h3>
                       <Slider defaultValue={[0, 50]} max={100} step={1} />
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">$0</span>
@@ -137,7 +154,7 @@ export default function PlantsittingPage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Distance</h3>
+                      <h3 className="text-sm font-medium font-heading">Distance</h3>
                       <Slider defaultValue={[5]} max={50} step={1} />
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">0 miles</span>
@@ -145,7 +162,7 @@ export default function PlantsittingPage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Services</h3>
+                      <h3 className="text-sm font-medium font-heading">Services</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="watering" />
@@ -170,7 +187,7 @@ export default function PlantsittingPage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Experience Level</h3>
+                      <h3 className="text-sm font-medium font-heading">Experience Level</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="beginner-sitter" />
@@ -187,7 +204,7 @@ export default function PlantsittingPage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Availability</h3>
+                      <h3 className="text-sm font-medium font-heading">Availability</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="weekdays" />
@@ -238,14 +255,20 @@ export default function PlantsittingPage() {
                 <div className="flex items-start gap-4">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
                     <Image
-                      src={`/placeholder.svg?height=64&width=64&text=Sitter+${i + 1}`}
+                      src={
+                        i % 3 === 0
+                          ? "/images/sitter-1.png"
+                          : i % 3 === 1
+                            ? "/images/sitter-2.png"
+                            : "/images/sitter-3.png"
+                      }
                       alt={`Plant Sitter ${i + 1}`}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div>
-                    <h3 className="font-semibold">
+                    <h3 className="font-heading">
                       {i % 3 === 0 ? "Sarah Johnson" : i % 3 === 1 ? "Michael Chen" : "Emma Rodriguez"}
                     </h3>
                     <div className="mt-1 flex items-center">
@@ -373,7 +396,7 @@ export default function PlantsittingPage() {
         <div className="container py-8 md:py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Rootsy</h3>
+              <h3 className="font-heading mb-4">Rootsy</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -393,7 +416,7 @@ export default function PlantsittingPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Services</h3>
+              <h3 className="font-heading mb-4">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -413,7 +436,7 @@ export default function PlantsittingPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
+              <h3 className="font-heading mb-4">Support</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/help" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -433,7 +456,7 @@ export default function PlantsittingPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-heading mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -472,7 +495,7 @@ export default function PlantsittingPage() {
                 <path d="M12 22V8" />
                 <path d="M9 10a3 3 0 0 0 6 0" />
               </svg>
-              <span className="font-semibold">Rootsy</span>
+              <span className="font-heading">Rootsy</span>
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

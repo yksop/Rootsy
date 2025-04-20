@@ -11,11 +11,124 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
 export default function MarketplacePage() {
+  // Plant data for the marketplace
+  const plants = [
+    {
+      id: 1,
+      name: "Monstera Deliciosa",
+      price: 29.99,
+      rating: 4.8,
+      image: "/images/monstera.png",
+      lightLevel: "Medium light • Moderate",
+      careLevel: "Easy",
+    },
+    {
+      id: 2,
+      name: "Snake Plant",
+      price: 24.99,
+      rating: 4.7,
+      image: "/images/snake-plant.png",
+      lightLevel: "Low light • Easy care",
+      careLevel: "Easy",
+    },
+    {
+      id: 3,
+      name: "Fiddle Leaf Fig",
+      price: 34.99,
+      rating: 4.6,
+      image: "/images/fiddle-leaf.png",
+      lightLevel: "Bright light • Regular water",
+      careLevel: "Moderate",
+    },
+    {
+      id: 4,
+      name: "Pothos",
+      price: 19.99,
+      rating: 4.9,
+      image: "/images/pothos.png",
+      lightLevel: "Low to bright light • Easy care",
+      careLevel: "Easy",
+    },
+    {
+      id: 5,
+      name: "ZZ Plant",
+      price: 22.99,
+      rating: 4.8,
+      image: "/images/zz-plant.png",
+      lightLevel: "Low light • Drought tolerant",
+      careLevel: "Easy",
+    },
+    {
+      id: 6,
+      name: "Calathea",
+      price: 27.99,
+      rating: 4.5,
+      image: "/images/calathea.png",
+      lightLevel: "Medium light • High humidity",
+      careLevel: "Moderate",
+    },
+    {
+      id: 7,
+      name: "Aloe Vera",
+      price: 18.99,
+      rating: 4.7,
+      image: "/images/aloe-vera.png",
+      lightLevel: "Bright light • Drought tolerant",
+      careLevel: "Easy",
+    },
+    {
+      id: 8,
+      name: "Peace Lily",
+      price: 25.99,
+      rating: 4.6,
+      image: "/images/peace-lily.png",
+      lightLevel: "Low to medium light • Regular water",
+      careLevel: "Easy",
+    },
+    {
+      id: 9,
+      name: "Rubber Plant",
+      price: 32.99,
+      rating: 4.7,
+      image: "/images/rubber-plant.png",
+      lightLevel: "Medium to bright light • Moderate water",
+      careLevel: "Moderate",
+    },
+    // Repeat some plants to fill the grid
+    {
+      id: 10,
+      name: "Monstera Deliciosa",
+      price: 29.99,
+      rating: 4.8,
+      image: "/images/monstera.png",
+      lightLevel: "Medium light • Moderate",
+      careLevel: "Easy",
+    },
+    {
+      id: 11,
+      name: "Snake Plant",
+      price: 24.99,
+      rating: 4.7,
+      image: "/images/snake-plant.png",
+      lightLevel: "Low light • Easy care",
+      careLevel: "Easy",
+    },
+    {
+      id: 12,
+      name: "Fiddle Leaf Fig",
+      price: 34.99,
+      rating: 4.6,
+      image: "/images/fiddle-leaf.png",
+      lightLevel: "Bright light • Regular water",
+      careLevel: "Moderate",
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
+          <Link href="/" className="flex items-center gap-2 font-heading">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -106,7 +219,7 @@ export default function MarketplacePage() {
         <div className="container py-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Plant Marketplace</h1>
+              <h1 className="text-3xl font-heading tracking-tight">Plant Marketplace</h1>
               <p className="text-muted-foreground mt-1">Find the perfect plants for your home</p>
             </div>
             <div className="flex items-center gap-2 w-full md:w-auto">
@@ -128,7 +241,7 @@ export default function MarketplacePage() {
                   </SheetHeader>
                   <div className="grid gap-6 py-6">
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Price Range</h3>
+                      <h3 className="text-sm font-medium font-heading">Price Range</h3>
                       <Slider defaultValue={[0, 100]} max={200} step={1} />
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">$0</span>
@@ -136,7 +249,7 @@ export default function MarketplacePage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Plant Type</h3>
+                      <h3 className="text-sm font-medium font-heading">Plant Type</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="indoor" />
@@ -161,7 +274,7 @@ export default function MarketplacePage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Light Requirements</h3>
+                      <h3 className="text-sm font-medium font-heading">Light Requirements</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="low-light" />
@@ -178,7 +291,7 @@ export default function MarketplacePage() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-sm font-medium">Care Level</h3>
+                      <h3 className="text-sm font-medium font-heading">Care Level</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <Checkbox id="beginner" />
@@ -207,7 +320,7 @@ export default function MarketplacePage() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Showing 24 results</span>
+              <span className="text-sm text-muted-foreground">Showing {plants.length} results</span>
             </div>
             <Select defaultValue="featured">
               <SelectTrigger className="w-[180px]">
@@ -224,41 +337,27 @@ export default function MarketplacePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <Link href={`/plant/${i + 1}`} key={i} className="group">
+            {plants.map((plant) => (
+              <Link href={`/plant/${plant.id}`} key={plant.id} className="group">
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src={`/placeholder.svg?height=300&width=300&text=Plant+${i + 1}`}
-                      alt={`Plant ${i + 1}`}
+                      src={plant.image || "/placeholder.svg"}
+                      alt={plant.name}
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-medium">
-                      {i % 4 === 0
-                        ? "Monstera Deliciosa"
-                        : i % 4 === 1
-                          ? "Snake Plant"
-                          : i % 4 === 2
-                            ? "Fiddle Leaf Fig"
-                            : "Pothos"}
-                    </h3>
+                    <h3 className="font-heading">{plant.name}</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">${(19.99 + i * 5).toFixed(2)}</span>
+                      <span className="font-semibold text-green-600">${plant.price.toFixed(2)}</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="ml-1 text-sm text-muted-foreground">{(4 + Math.random()).toFixed(1)}</span>
+                        <span className="ml-1 text-sm text-muted-foreground">{plant.rating}</span>
                       </div>
                     </div>
-                    <div className="mt-2 text-xs text-muted-foreground">
-                      {i % 3 === 0
-                        ? "Low light • Easy care"
-                        : i % 3 === 1
-                          ? "Medium light • Moderate"
-                          : "Bright light • Regular water"}
-                    </div>
+                    <div className="mt-2 text-xs text-muted-foreground">{plant.lightLevel}</div>
                   </div>
                 </div>
               </Link>
@@ -318,7 +417,7 @@ export default function MarketplacePage() {
         <div className="container py-8 md:py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Rootsy</h3>
+              <h3 className="font-heading mb-4">Rootsy</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -338,7 +437,7 @@ export default function MarketplacePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Services</h3>
+              <h3 className="font-heading mb-4">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -358,7 +457,7 @@ export default function MarketplacePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
+              <h3 className="font-heading mb-4">Support</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/help" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -378,7 +477,7 @@ export default function MarketplacePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-heading mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -417,7 +516,7 @@ export default function MarketplacePage() {
                 <path d="M12 22V8" />
                 <path d="M9 10a3 3 0 0 0 6 0" />
               </svg>
-              <span className="font-semibold">Rootsy</span>
+              <span className="font-heading">Rootsy</span>
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

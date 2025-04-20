@@ -7,11 +7,69 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 
 export default function PlantDetailPage({ params }: { params: { id: string } }) {
+  // Get plant data based on ID
+  const plantData = {
+    1: {
+      name: "Monstera Deliciosa",
+      image: "/images/monstera.png",
+      price: 29.99,
+      rating: 4.9,
+      reviews: 128,
+      description:
+        "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
+      longDescription:
+        "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
+    },
+    2: {
+      name: "Snake Plant",
+      image: "/images/snake-plant.png",
+      price: 24.99,
+      rating: 4.7,
+      reviews: 96,
+      description:
+        "The Snake Plant, or Sansevieria, is one of the most low-maintenance plants you can grow. With its striking upright leaves and ability to purify air, it's perfect for beginners.",
+      longDescription:
+        "Native to West Africa, the Snake Plant is known for its hardiness and ability to survive in a wide range of conditions. It's one of the few plants that convert CO2 to oxygen at night, making it an excellent bedroom plant.",
+    },
+    3: {
+      name: "Fiddle Leaf Fig",
+      image: "/images/fiddle-leaf.png",
+      price: 34.99,
+      rating: 4.6,
+      reviews: 112,
+      description:
+        "The Fiddle Leaf Fig is known for its large, violin-shaped leaves that create a dramatic statement in any space. It's a popular choice for modern interiors.",
+      longDescription:
+        "Native to western Africa, the Fiddle Leaf Fig grows in lowland tropical rainforests. In its natural habitat, it can reach heights of up to 40 feet. As a houseplant, it typically grows to 6-10 feet tall with proper care.",
+    },
+    4: {
+      name: "Pothos",
+      image: "/images/pothos.png",
+      price: 19.99,
+      rating: 4.9,
+      reviews: 145,
+      description:
+        "Pothos is a versatile trailing plant with heart-shaped leaves that can brighten up any space. It's incredibly easy to care for and can thrive in a variety of conditions.",
+      longDescription:
+        "Native to the Solomon Islands, Pothos is a popular houseplant known for its air-purifying qualities and ability to grow in low light. Its trailing vines can grow up to 10 feet long indoors, making it perfect for hanging baskets or climbing up trellises.",
+    },
+  }[params.id as unknown as number] || {
+    name: "Monstera Deliciosa",
+    image: "/images/monstera.png",
+    price: 29.99,
+    rating: 4.9,
+    reviews: 128,
+    description:
+      "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
+    longDescription:
+      "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
+          <Link href="/" className="flex items-center gap-2 font-heading">
             <Leaf className="h-6 w-6 text-green-600" />
             <span className="text-xl">Rootsy</span>
           </Link>
@@ -83,8 +141,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
             <div className="space-y-4">
               <div className="overflow-hidden rounded-lg border">
                 <Image
-                  src={`/placeholder.svg?height=600&width=600&text=Plant+${params.id}`}
-                  alt={`Plant ${params.id}`}
+                  src={plantData.image || "/placeholder.svg"}
+                  alt={plantData.name}
                   width={600}
                   height={600}
                   className="w-full object-cover"
@@ -94,8 +152,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="overflow-hidden rounded-md border cursor-pointer hover:border-green-600">
                     <Image
-                      src={`/placeholder.svg?height=150&width=150&text=View+${i}`}
-                      alt={`Plant view ${i}`}
+                      src={plantData.image || "/placeholder.svg"}
+                      alt={`${plantData.name} view ${i}`}
                       width={150}
                       height={150}
                       className="w-full object-cover"
@@ -108,19 +166,21 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
             <div>
               <div className="mb-4">
                 <Badge className="mb-2 bg-green-100 text-green-800 hover:bg-green-100">Best Seller</Badge>
-                <h1 className="text-3xl font-bold">Monstera Deliciosa</h1>
+                <h1 className="text-3xl font-heading">{plantData.name}</h1>
                 <div className="mt-2 flex items-center">
                   <div className="flex items-center">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <span className="ml-2 text-sm text-muted-foreground">4.9 (128 reviews)</span>
+                  <span className="ml-2 text-sm text-muted-foreground">
+                    {plantData.rating} ({plantData.reviews} reviews)
+                  </span>
                 </div>
               </div>
 
               <div className="mb-6">
-                <div className="text-2xl font-bold text-green-600">$29.99</div>
+                <div className="text-2xl font-heading text-green-600">${plantData.price}</div>
                 <p className="text-sm text-muted-foreground">In stock - usually ships within 24 hours</p>
               </div>
 
@@ -190,69 +250,115 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
 
           <Tabs defaultValue="description" className="mb-12">
             <TabsList className="w-full grid grid-cols-3 mb-8">
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="care">Care Guide</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              <TabsTrigger value="description" className="font-heading">
+                Description
+              </TabsTrigger>
+              <TabsTrigger value="care" className="font-heading">
+                Care Guide
+              </TabsTrigger>
+              <TabsTrigger value="reviews" className="font-heading">
+                Reviews
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="description" className="space-y-4">
-              <h2 className="text-2xl font-bold">About Monstera Deliciosa</h2>
-              <p>
-                The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf
-                holes. These tropical plants are easy to care for and can add a jungle feel to your home.
-              </p>
-              <p>
-                Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing
-                evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its
-                leaves are a natural adaptation that allows wind to pass through, preventing the plant from being
-                uprooted during storms.
-              </p>
+              <h2 className="text-2xl font-heading">About {plantData.name}</h2>
+              <p>{plantData.description}</p>
+              <p>{plantData.longDescription}</p>
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="rounded-lg border p-4">
-                  <h3 className="font-medium mb-2">Plant Details</h3>
+                  <h3 className="font-heading mb-2">Plant Details</h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Botanical Name</span>
-                      <span>Monstera Deliciosa</span>
+                      <span>{plantData.name}</span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Also Known As</span>
-                      <span>Swiss Cheese Plant</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "Swiss Cheese Plant"
+                          : plantData.name === "Snake Plant"
+                            ? "Sansevieria"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "Ficus Lyrata"
+                              : "Devil's Ivy"}
+                      </span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Origin</span>
-                      <span>Southern Mexico, Panama</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "Southern Mexico, Panama"
+                          : plantData.name === "Snake Plant"
+                            ? "West Africa"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "Western Africa"
+                              : "Solomon Islands"}
+                      </span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Plant Type</span>
-                      <span>Tropical Evergreen</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "Tropical Evergreen"
+                          : plantData.name === "Snake Plant"
+                            ? "Succulent"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "Tropical Tree"
+                              : "Trailing Vine"}
+                      </span>
                     </li>
                   </ul>
                 </div>
                 <div className="rounded-lg border p-4">
-                  <h3 className="font-medium mb-2">Growth</h3>
+                  <h3 className="font-heading mb-2">Growth</h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Mature Height</span>
-                      <span>3-10 feet (indoors)</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "3-10 feet (indoors)"
+                          : plantData.name === "Snake Plant"
+                            ? "1-4 feet"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "6-10 feet"
+                              : "Trailing up to 10 feet"}
+                      </span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Growth Rate</span>
-                      <span>Moderate to Fast</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "Moderate to Fast"
+                          : plantData.name === "Snake Plant"
+                            ? "Slow"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "Moderate"
+                              : "Fast"}
+                      </span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Leaf Size</span>
-                      <span>Up to 18 inches</span>
+                      <span>
+                        {plantData.name === "Monstera Deliciosa"
+                          ? "Up to 18 inches"
+                          : plantData.name === "Snake Plant"
+                            ? "Up to 3 feet tall"
+                            : plantData.name === "Fiddle Leaf Fig"
+                              ? "Up to 12 inches"
+                              : "2-4 inches"}
+                      </span>
                     </li>
                     <li className="flex justify-between">
                       <span className="text-muted-foreground">Toxicity</span>
-                      <span>Toxic to pets</span>
+                      <span>{plantData.name === "Snake Plant" ? "Mildly toxic to pets" : "Toxic to pets"}</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </TabsContent>
             <TabsContent value="care" className="space-y-4">
-              <h2 className="text-2xl font-bold">Care Instructions</h2>
+              <h2 className="text-2xl font-heading">Care Instructions</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="rounded-lg border p-6">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
@@ -272,10 +378,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Light</h3>
+                  <h3 className="font-heading mb-2">Light</h3>
                   <p className="text-sm text-muted-foreground">
-                    Bright, indirect light is ideal. Can tolerate some direct morning sun, but avoid harsh afternoon sun
-                    which can burn the leaves.
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Bright, indirect light is ideal. Can tolerate some direct morning sun, but avoid harsh afternoon sun which can burn the leaves."
+                      : plantData.name === "Snake Plant"
+                        ? "Adaptable to various light conditions, from low light to bright indirect light. Avoid direct sunlight which can scorch the leaves."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Bright, indirect light is essential. Place near a window with filtered light. Rotate occasionally for even growth."
+                          : "Adaptable to various light conditions, from low to bright indirect light. Variegated varieties need more light to maintain their patterns."}
                   </p>
                 </div>
                 <div className="rounded-lg border p-6">
@@ -299,10 +410,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <path d="M9 12H6" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Water</h3>
+                  <h3 className="font-heading mb-2">Water</h3>
                   <p className="text-sm text-muted-foreground">
-                    Allow the top 1-2 inches of soil to dry out between waterings. Water less in winter. Monsteras are
-                    more tolerant of under-watering than over-watering.
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Allow the top 1-2 inches of soil to dry out between waterings. Water less in winter. Monsteras are more tolerant of under-watering than over-watering."
+                      : plantData.name === "Snake Plant"
+                        ? "Allow soil to dry completely between waterings. Water sparingly, especially in winter. Overwatering is the most common cause of problems."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Water when the top inch of soil is dry. Consistent watering is key - avoid extremes of drought or soggy soil. Use room temperature water."
+                          : "Allow the top inch of soil to dry between waterings. Can tolerate occasional drought but will grow faster with regular watering. Yellowing leaves often indicate overwatering."}
                   </p>
                 </div>
                 <div className="rounded-lg border p-6">
@@ -323,10 +439,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <path d="M12 2v20" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Humidity</h3>
+                  <h3 className="font-heading mb-2">Humidity</h3>
                   <p className="text-sm text-muted-foreground">
-                    Enjoys higher humidity levels of 60% or more. Regular misting or a humidifier can help, especially
-                    in dry environments.
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Enjoys higher humidity levels of 60% or more. Regular misting or a humidifier can help, especially in dry environments."
+                      : plantData.name === "Snake Plant"
+                        ? "Tolerates dry air and doesn't require additional humidity. One of the few plants that thrives in typical indoor conditions."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Prefers moderate to high humidity (40-60%). Consider using a humidifier or pebble tray in dry environments."
+                          : "Adaptable to normal household humidity but appreciates higher humidity. Misting occasionally can help, especially in dry environments."}
                   </p>
                 </div>
                 <div className="rounded-lg border p-6">
@@ -348,10 +469,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <path d="M2 12h20" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Temperature</h3>
+                  <h3 className="font-heading mb-2">Temperature</h3>
                   <p className="text-sm text-muted-foreground">
-                    Thrives in temperatures between 65-85°F (18-30°C). Avoid cold drafts and temperatures below 60°F
-                    (15°C).
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Thrives in temperatures between 65-85°F (18-30°C). Avoid cold drafts and temperatures below 60°F (15°C)."
+                      : plantData.name === "Snake Plant"
+                        ? "Tolerates a wide range of temperatures from 55-85°F (13-29°C). Avoid temperatures below 50°F (10°C)."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Prefers consistent temperatures between 65-75°F (18-24°C). Avoid drafts, sudden temperature changes, and temperatures below 60°F (15°C)."
+                          : "Prefers temperatures between 65-85°F (18-29°C). Can tolerate brief periods outside this range but avoid temperatures below 50°F (10°C)."}
                   </p>
                 </div>
                 <div className="rounded-lg border p-6">
@@ -373,10 +499,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <path d="M10 18h4" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Soil</h3>
+                  <h3 className="font-heading mb-2">Soil</h3>
                   <p className="text-sm text-muted-foreground">
-                    Use a well-draining potting mix rich in organic matter. A mix of potting soil, perlite, and orchid
-                    bark works well.
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Use a well-draining potting mix rich in organic matter. A mix of potting soil, perlite, and orchid bark works well."
+                      : plantData.name === "Snake Plant"
+                        ? "Prefers well-draining, somewhat sandy soil. A cactus or succulent mix with some regular potting soil works well."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Use well-draining, nutrient-rich soil. A mix of high-quality potting soil with perlite for drainage is ideal."
+                          : "Adapts to most well-draining potting soils. A standard indoor potting mix works well, or you can add perlite to improve drainage."}
                   </p>
                 </div>
                 <div className="rounded-lg border p-6">
@@ -397,28 +528,33 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <path d="M10 10c0-2.5 1.5-6 5-6" />
                     </svg>
                   </div>
-                  <h3 className="font-medium mb-2">Fertilizer</h3>
+                  <h3 className="font-heading mb-2">Fertilizer</h3>
                   <p className="text-sm text-muted-foreground">
-                    Feed monthly during the growing season (spring and summer) with a balanced liquid fertilizer diluted
-                    to half strength.
+                    {plantData.name === "Monstera Deliciosa"
+                      ? "Feed monthly during the growing season (spring and summer) with a balanced liquid fertilizer diluted to half strength."
+                      : plantData.name === "Snake Plant"
+                        ? "Fertilize sparingly, only 2-3 times per year with a balanced houseplant fertilizer diluted to half strength."
+                        : plantData.name === "Fiddle Leaf Fig"
+                          ? "Feed with a nitrogen-rich fertilizer during the growing season (spring and summer) every 4-6 weeks. Reduce or eliminate feeding in fall and winter."
+                          : "Feed monthly during the growing season with a balanced houseplant fertilizer. Can grow without fertilizer but will be more lush with regular feeding."}
                   </p>
                 </div>
               </div>
             </TabsContent>
             <TabsContent value="reviews" className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold">Customer Reviews</h2>
+                <h2 className="text-2xl font-heading">Customer Reviews</h2>
                 <Button className="bg-green-600 hover:bg-green-700">Write a Review</Button>
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-center">
-                  <div className="text-5xl font-bold">4.9</div>
+                  <div className="text-5xl font-heading">{plantData.rating}</div>
                   <div className="flex justify-center mt-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <div className="mt-1 text-sm text-muted-foreground">Based on 128 reviews</div>
+                  <div className="mt-1 text-sm text-muted-foreground">Based on {plantData.reviews} reviews</div>
                 </div>
                 <div className="flex-1 space-y-1">
                   {[5, 4, 3, 2, 1].map((rating) => (
@@ -454,7 +590,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                     <div className="flex justify-between items-start">
                       <div>
                         <div className="flex items-center gap-2">
-                          <div className="font-medium">
+                          <div className="font-heading">
                             {i === 1 ? "Emily Johnson" : i === 2 ? "Michael Chen" : "Sarah Williams"}
                           </div>
                           <Badge variant="outline" className="text-xs">
@@ -472,7 +608,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                         {i === 1 ? "Jun 12, 2025" : i === 2 ? "May 28, 2025" : "Apr 15, 2025"}
                       </div>
                     </div>
-                    <h3 className="font-medium mt-2">
+                    <h3 className="font-heading mt-2">
                       {i === 1
                         ? "Beautiful, healthy plant!"
                         : i === 2
@@ -481,23 +617,23 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                     </h3>
                     <p className="mt-2 text-sm">
                       {i === 1
-                        ? "My Monstera arrived in perfect condition. The leaves are large and healthy with beautiful fenestrations. It was packaged extremely well and the soil was still slightly moist. Very happy with my purchase!"
+                        ? `My ${plantData.name} arrived in perfect condition. The leaves are large and healthy with beautiful fenestrations. It was packaged extremely well and the soil was still slightly moist. Very happy with my purchase!`
                         : i === 2
-                          ? "This plant is even more beautiful in person than in the photos. It arrived quickly and was very well packaged. The plant is healthy and has already put out a new leaf in the two weeks I've had it. Highly recommend!"
-                          : "I've been looking for a good sized Monstera for months and this one is perfect. The shipping was fast and the plant arrived in great condition with no damage. The care instructions were very helpful too."}
+                          ? `This plant is even more beautiful in person than in the photos. It arrived quickly and was very well packaged. The plant is healthy and has already put out a new leaf in the two weeks I've had it. Highly recommend!`
+                          : `I've been looking for a good sized ${plantData.name} for months and this one is perfect. The shipping was fast and the plant arrived in great condition with no damage. The care instructions were very helpful too.`}
                     </p>
                     <div className="mt-4 flex gap-2">
                       {i === 1 && (
                         <>
                           <Image
-                            src="/placeholder.svg?height=80&width=80&text=Review+Photo+1"
+                            src={plantData.image || "/placeholder.svg"}
                             alt="Review photo"
                             width={80}
                             height={80}
                             className="rounded-md object-cover"
                           />
                           <Image
-                            src="/placeholder.svg?height=80&width=80&text=Review+Photo+2"
+                            src={plantData.image || "/placeholder.svg"}
                             alt="Review photo"
                             width={80}
                             height={80}
@@ -516,36 +652,118 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
           </Tabs>
 
           <div>
-            <h2 className="text-2xl font-bold mb-6">You May Also Like</h2>
+            <h2 className="text-2xl font-heading mb-6">You May Also Like</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[1, 2, 3, 4].map((i) => (
-                <Link href={`/plant/${i + 10}`} key={i} className="group">
-                  <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
-                    <div className="relative aspect-square">
-                      <Image
-                        src={`/placeholder.svg?height=300&width=300&text=Related+${i}`}
-                        alt={`Related Plant ${i}`}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-medium">
-                        {i === 1 ? "Fiddle Leaf Fig" : i === 2 ? "Snake Plant" : i === 3 ? "Pothos" : "ZZ Plant"}
-                      </h3>
-                      <div className="mt-1 flex items-center justify-between">
-                        <span className="font-semibold text-green-600">${(19.99 + i * 5).toFixed(2)}</span>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="ml-1 text-sm text-muted-foreground">
-                            {(4 + Math.random() * 0.9).toFixed(1)}
-                          </span>
-                        </div>
+              <Link href="/plant/1" className={`group ${params.id === "1" ? "hidden" : ""}`}>
+                <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/images/monstera.png"
+                      alt="Monstera Deliciosa"
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading">Monstera Deliciosa</h3>
+                    <div className="mt-1 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">$29.99</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm text-muted-foreground">4.9</span>
                       </div>
                     </div>
                   </div>
-                </Link>
-              ))}
+                </div>
+              </Link>
+              <Link href="/plant/2" className={`group ${params.id === "2" ? "hidden" : ""}`}>
+                <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/images/snake-plant.png"
+                      alt="Snake Plant"
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading">Snake Plant</h3>
+                    <div className="mt-1 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">$24.99</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm text-muted-foreground">4.7</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              <Link href="/plant/3" className={`group ${params.id === "3" ? "hidden" : ""}`}>
+                <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/images/fiddle-leaf.png"
+                      alt="Fiddle Leaf Fig"
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading">Fiddle Leaf Fig</h3>
+                    <div className="mt-1 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">$34.99</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm text-muted-foreground">4.6</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              <Link href="/plant/4" className={`group ${params.id === "4" ? "hidden" : ""}`}>
+                <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/images/pothos.png"
+                      alt="Pothos"
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading">Pothos</h3>
+                    <div className="mt-1 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">$19.99</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm text-muted-foreground">4.9</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              <Link href="/plant/5" className={`group ${params.id === "5" ? "hidden" : ""}`}>
+                <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/images/zz-plant.png"
+                      alt="ZZ Plant"
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading">ZZ Plant</h3>
+                    <div className="mt-1 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">$22.99</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm text-muted-foreground">4.8</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -554,7 +772,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
         <div className="container py-8 md:py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Rootsy</h3>
+              <h3 className="font-heading mb-4">Rootsy</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -574,7 +792,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Services</h3>
+              <h3 className="font-heading mb-4">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -594,7 +812,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
+              <h3 className="font-heading mb-4">Support</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/help" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -614,7 +832,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-heading mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -637,7 +855,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
               <Leaf className="h-5 w-5 text-green-600" />
-              <span className="font-semibold">Rootsy</span>
+              <span className="font-heading">Rootsy</span>
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">
