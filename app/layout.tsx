@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rocGrotesk.variable} font-roc`}>
+      <body className={`${arbutusSlab.variable} font-roc`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
