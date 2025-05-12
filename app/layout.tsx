@@ -12,10 +12,22 @@ const barlow = Barlow({
 })
 
 // Import Arbutus Slab as a local font
+// const arbutusSlab = localFont({
+//   src: [
+//     {
+//       path: "../public/fonts/ArbutusSlab-Regular.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-arbutus-slab",
+// })
+
+// Import MyriadPro
 const arbutusSlab = localFont({
   src: [
     {
-      path: "../public/fonts/ArbutusSlab-Regular.ttf",
+      path: "../public/fonts/MyriadPro-Regular.otf",
       weight: "400",
       style: "normal",
     },
@@ -26,7 +38,7 @@ const arbutusSlab = localFont({
 export const metadata: Metadata = {
   title: "Rootsy - Plant Marketplace & Plant Sitting",
   description: "Find plant sitters for your green friends or discover new plants to add to your collection.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

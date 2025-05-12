@@ -1,3 +1,6 @@
+"use client"  // Aggiungiamo questa direttiva per poter usare gli stati in React
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Filter, Search, SlidersHorizontal, Star } from "lucide-react"
@@ -11,6 +14,9 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
 export default function MarketplacePage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("featured");
+
   // Plant data for the marketplace
   const plants = [
     {
@@ -124,6 +130,33 @@ export default function MarketplacePage() {
     },
   ]
 
+  // Filtrare le piante in base al termine di ricerca
+  const filteredPlants = plants.filter(plant =>
+    plant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    plant.lightLevel.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    plant.careLevel.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Ordinare le piante in base al criterio selezionato
+  const sortedPlants = [...filteredPlants].sort((a, b) => {
+    switch (sortBy) {
+      case "newest":
+        // Per semplicità, ordiniamo per ID (assumendo che ID più alti siano più recenti)
+        return b.id - a.id;
+      case "price-low":
+        return a.price - b.price;
+      case "price-high":
+        return b.price - a.price;
+      case "popular":
+        // Ordina per valutazione più alta
+        return b.rating - a.rating;
+      case "featured":
+      default:
+        // L'ordinamento predefinito "featured" lo lasciamo come è
+        return 0;
+    }
+  });
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -225,7 +258,13 @@ export default function MarketplacePage() {
             <div className="flex items-center gap-2 w-full md:w-auto">
               <div className="relative w-full md:w-[300px]">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="Search plants..." className="w-full pl-8" />
+                <Input
+                  type="search"
+                  placeholder="Search plants..."
+                  className="w-full pl-8"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
               <Sheet>
                 <SheetTrigger asChild>
@@ -322,7 +361,7 @@ export default function MarketplacePage() {
               <Filter className="h-4 w-4 text-muted-foreground" />
               <span className="text-sm text-muted-foreground">Showing {plants.length} results</span>
             </div>
-            <Select defaultValue="featured">
+            <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
@@ -337,7 +376,7 @@ export default function MarketplacePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {plants.map((plant) => (
+            {sortedPlants.map((plant) => (
               <Link href={`/plant/${plant.id}`} key={plant.id} className="group">
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
