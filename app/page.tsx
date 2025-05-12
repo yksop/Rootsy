@@ -184,7 +184,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                          src="https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt="Snake Plant"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -206,7 +206,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                          src="https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D"
                           alt="Fiddle Leaf Fig"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -228,7 +228,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                          src="https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww"
                           alt="Pothos"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"

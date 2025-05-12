@@ -35,7 +35,7 @@ export default function MarketplacePage() {
       price: 24.99,
       rating: 4.7,
       image:
-        "https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       lightLevel: "Low light • Easy care",
       careLevel: "Easy",
     },
@@ -45,7 +45,7 @@ export default function MarketplacePage() {
       price: 34.99,
       rating: 4.6,
       image:
-        "https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D",
       lightLevel: "Bright light • Regular water",
       careLevel: "Moderate",
     },
@@ -55,7 +55,7 @@ export default function MarketplacePage() {
       price: 19.99,
       rating: 4.9,
       image:
-        "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww",
       lightLevel: "Low to bright light • Easy care",
       careLevel: "Easy",
     },
@@ -65,7 +65,7 @@ export default function MarketplacePage() {
       price: 22.99,
       rating: 4.8,
       image:
-        "https://images.unsplash.com/photo-1632321941433-416736b82c90?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://plus.unsplash.com/premium_photo-1669870413077-93390b44baf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WlolMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
       lightLevel: "Low light • Drought tolerant",
       careLevel: "Easy",
     },
@@ -85,7 +85,7 @@ export default function MarketplacePage() {
       price: 18.99,
       rating: 4.7,
       image:
-        "https://images.unsplash.com/photo-1596547609652-9cf5d8c6a5f6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8QWxvZSUyMHZlcmF8ZW58MHx8MHx8fDA%3D",
       lightLevel: "Bright light • Drought tolerant",
       careLevel: "Easy",
     },
@@ -105,7 +105,7 @@ export default function MarketplacePage() {
       price: 32.99,
       rating: 4.7,
       image:
-        "https://images.unsplash.com/photo-1594057687713-5fd14eed1c17?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1669392597221-bbfd4b6e13ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UnViYmVyJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
       lightLevel: "Medium to bright light • Moderate water",
       careLevel: "Moderate",
     },
@@ -115,7 +115,7 @@ export default function MarketplacePage() {
       price: 21.99,
       rating: 4.5,
       image:
-        "https://images.unsplash.com/photo-1629789877829-925c1d416164?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1648070024741-43f8fa965966?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3RyaW5nJTIwb2YlMjBwZWFybHMlMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
       lightLevel: "Bright indirect light • Sparse water",
       careLevel: "Moderate",
     },
@@ -125,7 +125,7 @@ export default function MarketplacePage() {
       price: 39.99,
       rating: 4.6,
       image:
-        "https://images.unsplash.com/photo-1599685315640-8ed2eaad2a6b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://plus.unsplash.com/premium_photo-1674473872726-f59a276c4287?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmlyZCUyMG9mJTIwcGFyYWRpc2V8ZW58MHx8MHx8fDA%3D",
       lightLevel: "Bright light • Moderate water",
       careLevel: "Moderate",
     },
@@ -135,7 +135,7 @@ export default function MarketplacePage() {
       price: 23.99,
       rating: 4.8,
       image:
-        "https://images.unsplash.com/photo-1614594576054-c04cea01da17?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1714674119508-6676b71d3bf7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hpbmVzZSUyMG1vbmV5JTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
       lightLevel: "Bright indirect light • Moderate water",
       careLevel: "Easy",
     },
