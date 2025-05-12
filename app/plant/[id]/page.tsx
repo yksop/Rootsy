@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 
-export default function PlantDetailPage({ params }: { params: { id: string } }) {
+export default async function PlantDetailPage({ params }: { params: { id: string } }) {
   // Dati fittizi dei venditori
   const sellerData = {
     1: {
