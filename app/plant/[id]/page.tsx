@@ -126,8 +126,13 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-heading">
-            <Leaf className="h-6 w-6 text-green-600" />
-            <span className="text-xl">Rootsy</span>
+            <Image
+              src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+              alt="Rootsy Logo"
+              width={100}
+              height={100}
+              className="h-12 w-auto object-contain"
+            />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
@@ -135,9 +140,6 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
             </Link>
             <Link href="/plantsitting" className="text-sm font-medium hover:text-green-600 transition-colors">
               Plant Sitting
-            </Link>
-            <Link href="/community" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Community
             </Link>
             <Link href="/about" className="text-sm font-medium hover:text-green-600 transition-colors">
               About
@@ -908,8 +910,13 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
           </div>
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <Leaf className="h-5 w-5 text-green-600" />
-              <span className="font-heading">Rootsy</span>
+              <Image
+                src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

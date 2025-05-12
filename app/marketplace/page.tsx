@@ -173,24 +173,13 @@ export default function MarketplacePage() {
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-heading">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6 text-green-600"
-            >
-              <path d="M2 22a10 10 0 0 1 20 0" />
-              <path d="M16 7a4 4 0 0 0-8 0" />
-              <path d="M12 22V8" />
-              <path d="M9 10a3 3 0 0 0 6 0" />
-            </svg>
-            <span className="text-xl">Rootsy</span>
+            <Image
+              src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+              alt="Rootsy Logo"
+              width={100}
+              height={100}
+              className="h-12 w-auto object-contain"
+            />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link href="/marketplace" className="text-sm font-medium text-green-600">
@@ -198,9 +187,6 @@ export default function MarketplacePage() {
             </Link>
             <Link href="/plantsitting" className="text-sm font-medium hover:text-green-600 transition-colors">
               Plant Sitting
-            </Link>
-            <Link href="/community" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Community
             </Link>
             <Link href="/about" className="text-sm font-medium hover:text-green-600 transition-colors">
               About
@@ -549,24 +535,13 @@ export default function MarketplacePage() {
           </div>
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-green-600"
-              >
-                <path d="M2 22a10 10 0 0 1 20 0" />
-                <path d="M16 7a4 4 0 0 0-8 0" />
-                <path d="M12 22V8" />
-                <path d="M9 10a3 3 0 0 0 6 0" />
-              </svg>
-              <span className="font-heading">Rootsy</span>
+              <Image
+                src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

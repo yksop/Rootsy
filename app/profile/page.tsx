@@ -25,8 +25,13 @@ export default function ProfilePage() {
         <header className="sticky top-0 z-50 w-full border-b bg-background">
           <div className="container flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center gap-2 font-heading">
-              <Leaf className="h-6 w-6 text-green-600" />
-              <span className="text-xl">Rootsy</span>
+              <Image
+                src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-14 w-auto object-contain"
+              />
             </Link>
             <nav className="hidden md:flex gap-6">
               <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
@@ -34,9 +39,6 @@ export default function ProfilePage() {
               </Link>
               <Link href="/plantsitting" className="text-sm font-medium hover:text-green-600 transition-colors">
                 Plant Sitting
-              </Link>
-              <Link href="/community" className="text-sm font-medium hover:text-green-600 transition-colors">
-                Community
               </Link>
               <Link href="/about" className="text-sm font-medium hover:text-green-600 transition-colors">
                 About
@@ -279,13 +281,12 @@ export default function ProfilePage() {
                                 <p className="text-sm text-muted-foreground">Placed on March {i * 5}, 2025</p>
                               </div>
                               <span
-                                className={`text-xs px-2 py-1 rounded-full ${
-                                  i === 1
-                                    ? "bg-blue-100 text-blue-800"
-                                    : i === 2
-                                      ? "bg-green-100 text-green-800"
-                                      : "bg-gray-100 text-gray-800"
-                                }`}
+                                className={`text-xs px-2 py-1 rounded-full ${i === 1
+                                  ? "bg-blue-100 text-blue-800"
+                                  : i === 2
+                                    ? "bg-green-100 text-green-800"
+                                    : "bg-gray-100 text-gray-800"
+                                  }`}
                               >
                                 {i === 1 ? "Shipped" : i === 2 ? "Delivered" : "Processing"}
                               </span>
@@ -364,8 +365,13 @@ export default function ProfilePage() {
           <div className="container py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2">
-                <Leaf className="h-5 w-5 text-green-600" />
-                <span className="font-heading">Rootsy</span>
+                <Image
+                  src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                  alt="Rootsy Logo"
+                  width={100}
+                  height={100}
+                  className="h-12 w-auto object-contain"
+                />
               </div>
               <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
               <div className="flex gap-4">

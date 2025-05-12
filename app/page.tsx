@@ -11,10 +11,13 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-heading">
-            <Leaf className="h-6 w-6 text-green-600" />
-            <span className="text-xl">Rootsy</span>
-          </Link>
+          <Image
+            src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+            alt="Rootsy Logo"
+            width={100}
+            height={100}
+            className="h-12 w-auto object-contain"
+          />
           <nav className="hidden md:flex gap-6">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
               Marketplace
@@ -65,20 +68,19 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="relative">
+        <section className="relative h-screen">
           <Image
             src="/images/topiary-hero.png"
             alt="Elegant topiary plant"
-            width={1200}
-            height={600}
-            className="w-full h-[500px] object-cover object-center scale-90"
+            fill
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/30 z-10"></div>
+          <div className="absolute inset-0 bg-black/10 z-10"></div>
           <div className="container absolute inset-0 z-20 flex flex-col items-center justify-center text-center">
-            <div className="max-w-3xl p-6 rounded-lg bg-black/40 backdrop-blur-sm">
+            <div className="max-w-3xl p-6 rounded-lg bg-black/20 ">
               <h1 className="text-4xl font-heading tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-                Your Plants Deserve the Best Care
+                Rootsy
               </h1>
               <p className="mt-6 max-w-md mx-auto text-lg text-white drop-shadow-md">
                 Find plant sitters for your green friends or discover new plants to add to your collection.
@@ -460,8 +462,13 @@ export default function Home() {
           </div>
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <Leaf className="h-5 w-5 text-green-600" />
-              <span className="font-heading">Rootsy</span>
+              <Image
+                src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">

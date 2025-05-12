@@ -249,8 +249,13 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-heading">
-            <Leaf className="h-6 w-6 text-green-600" />
-            <span className="text-xl">Rootsy</span>
+            <Image
+              src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+              alt="Rootsy Logo"
+              width={100}
+              height={100}
+              className="h-14 w-auto object-contain"
+            />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
@@ -258,9 +263,6 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
             </Link>
             <Link href="/plantsitting" className="text-sm font-medium hover:text-green-600 transition-colors">
               Plant Sitting
-            </Link>
-            <Link href="/community" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Community
             </Link>
             <Link href="/about" className="text-sm font-medium hover:text-green-600 transition-colors">
               About
@@ -347,9 +349,8 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                       {[1, 2, 3, 4, 5].map((i) => (
                         <Star
                           key={i}
-                          className={`h-4 w-4 ${
-                            i <= Math.floor(sitterData.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                          }`}
+                          className={`h-4 w-4 ${i <= Math.floor(sitterData.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                            }`}
                         />
                       ))}
                     </div>
@@ -673,9 +674,8 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <Star
                                   key={star}
-                                  className={`h-4 w-4 ${
-                                    star <= review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                                  }`}
+                                  className={`h-4 w-4 ${star <= review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                                    }`}
                                 />
                               ))}
                               <span className="ml-2 text-xs text-muted-foreground">{review.date}</span>
@@ -874,8 +874,13 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
           </div>
           <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <Leaf className="h-5 w-5 text-green-600" />
-              <span className="font-heading">Rootsy</span>
+              <Image
+                src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-sm text-muted-foreground">© 2025 Rootsy. All rights reserved.</p>
             <div className="flex gap-4">
