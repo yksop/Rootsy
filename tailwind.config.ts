@@ -20,8 +20,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-barlow)"],
-        heading: ["var(--font-arbutus-slab)"],
+        roc: ["var(--font-roc-grotesk)"],
+        heading: ["var(--font-roc-grotesk)"],
       },
       colors: {
         border: "hsl(var(--border))",

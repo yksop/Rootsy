@@ -107,7 +107,7 @@ export default function PlantsittingPage() {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-green-800/50 z-10" />
           <Image
-            src="/images/plant-sitter-bg.png"
+            src="https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1200&auto=format&fit=crop"
             alt="Plant Sitting"
             width={1200}
             height={400}
@@ -250,89 +250,132 @@ export default function PlantsittingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({ length: 9 }).map((_, i) => (
+            {[
+              {
+                name: "Sarah Johnson",
+                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop",
+                rating: 4.9,
+                reviews: 24,
+                distance: 2.5,
+                description: "Plant enthusiast with 5+ years of experience caring for all types of indoor plants.",
+                price: 15,
+                badges: ["Watering", "Pruning", "Fertilizing"],
+              },
+              {
+                name: "Michael Chen",
+                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop",
+                rating: 4.8,
+                reviews: 18,
+                distance: 3.2,
+                description: "Certified botanist specializing in tropical plants and succulents.",
+                price: 18,
+                badges: ["Watering", "Repotting", "Pest Control"],
+              },
+              {
+                name: "Emma Rodriguez",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+                rating: 4.7,
+                reviews: 31,
+                distance: 1.8,
+                description: "Passionate plant lover with expertise in rare and exotic species.",
+                price: 16,
+                badges: ["Watering", "Pruning", "Plant Health"],
+              },
+              {
+                name: "David Kim",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+                rating: 4.6,
+                reviews: 15,
+                distance: 4.1,
+                description: "Horticulture student with a focus on indoor plant ecosystems.",
+                price: 14,
+                badges: ["Watering", "Fertilizing", "Light Management"],
+              },
+              {
+                name: "Olivia Martinez",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
+                rating: 4.9,
+                reviews: 27,
+                distance: 2.3,
+                description: "Former greenhouse manager with extensive knowledge of plant care.",
+                price: 20,
+                badges: ["Full Service", "Repotting", "Pest Control"],
+              },
+              {
+                name: "James Wilson",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+                rating: 4.7,
+                reviews: 22,
+                distance: 3.7,
+                description: "Plant enthusiast specializing in air purifying plants and ferns.",
+                price: 17,
+                badges: ["Watering", "Humidity Control", "Propagation"],
+              },
+              {
+                name: "Sophia Lee",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
+                rating: 4.8,
+                reviews: 19,
+                distance: 1.5,
+                description: "Experienced with rare tropical plants and creating optimal growing conditions.",
+                price: 19,
+                badges: ["Specialized Care", "Propagation", "Seasonal Care"],
+              },
+              {
+                name: "Ethan Brown",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
+                rating: 4.6,
+                reviews: 14,
+                distance: 5.2,
+                description: "Plant collector focusing on cacti and succulents with desert-like conditions.",
+                price: 16,
+                badges: ["Drought Plants", "Soil Management", "Watering"],
+              },
+              {
+                name: "Ava Thompson",
+                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+                rating: 4.9,
+                reviews: 33,
+                distance: 2.8,
+                description: "Botanical garden volunteer with expertise in a wide variety of plant species.",
+                price: 18,
+                badges: ["Full Service", "Plant Rotation", "Light Management"],
+              },
+            ].map((sitter, i) => (
               <div key={i} className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
                 <div className="flex items-start gap-4">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
                     <Image
-                      src={
-                        i % 3 === 0
-                          ? "/images/sitter-1.png"
-                          : i % 3 === 1
-                            ? "/images/sitter-2.png"
-                            : "/images/sitter-3.png"
-                      }
-                      alt={`Plant Sitter ${i + 1}`}
+                      src={sitter.image || "/placeholder.svg"}
+                      alt={`Plant Sitter ${sitter.name}`}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div>
-                    <h3 className="font-heading">
-                      {i % 3 === 0 ? "Sarah Johnson" : i % 3 === 1 ? "Michael Chen" : "Emma Rodriguez"}
-                    </h3>
+                    <h3 className="font-heading">{sitter.name}</h3>
                     <div className="mt-1 flex items-center">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                       <span className="ml-1 text-sm text-muted-foreground">
-                        {(4 + Math.random()).toFixed(1)} ({Math.floor(Math.random() * 30) + 5} reviews)
+                        {sitter.rating} ({sitter.reviews} reviews)
                       </span>
                     </div>
                     <div className="mt-1 flex items-center text-sm text-muted-foreground">
                       <MapPin className="mr-1 h-4 w-4" />
-                      <span>{(Math.random() * 10).toFixed(1)} miles away</span>
+                      <span>{sitter.distance} miles away</span>
                     </div>
                   </div>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {i % 3 === 0 && (
-                    <>
-                      <Badge variant="outline" className="bg-green-50">
-                        Watering
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Pruning
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Fertilizing
-                      </Badge>
-                    </>
-                  )}
-                  {i % 3 === 1 && (
-                    <>
-                      <Badge variant="outline" className="bg-green-50">
-                        Watering
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Repotting
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Pest Control
-                      </Badge>
-                    </>
-                  )}
-                  {i % 3 === 2 && (
-                    <>
-                      <Badge variant="outline" className="bg-green-50">
-                        Watering
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Pruning
-                      </Badge>
-                      <Badge variant="outline" className="bg-green-50">
-                        Plant Health
-                      </Badge>
-                    </>
-                  )}
+                  {sitter.badges.map((badge, j) => (
+                    <Badge key={j} variant="outline" className="bg-green-50">
+                      {badge}
+                    </Badge>
+                  ))}
                 </div>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  {i % 3 === 0
-                    ? "Plant enthusiast with 5+ years of experience caring for all types of indoor plants."
-                    : i % 3 === 1
-                      ? "Certified botanist specializing in tropical plants and succulents."
-                      : "Passionate plant lover with expertise in rare and exotic species."}
-                </p>
+                <p className="mt-4 text-sm text-muted-foreground">{sitter.description}</p>
                 <div className="mt-4 flex justify-between items-center">
-                  <span className="font-medium text-green-600">${10 + i * 2}/day</span>
+                  <span className="font-medium text-green-600">${sitter.price}/day</span>
                   <Link href={`/sitter/${i + 1}`}>
                     <Button size="sm" className="bg-green-600 hover:bg-green-700">
                       View Profile

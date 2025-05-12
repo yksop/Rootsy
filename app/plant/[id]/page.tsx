@@ -1,17 +1,69 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Heart, Leaf, Minus, Plus, ShoppingCart, Star, Truck } from "lucide-react"
+import { ArrowLeft, Heart, Leaf, ShoppingCart, Star, Truck } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 
 export default function PlantDetailPage({ params }: { params: { id: string } }) {
+  // Dati fittizi dei venditori
+  const sellerData = {
+    1: {
+      id: "seller1",
+      name: "Marco Rossi",
+      location: "Milano, Italia",
+      rating: 4.8,
+      reviews: 42,
+      memberSince: "Marzo 2023",
+      avatar:
+        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+      description:
+        "Appassionato di piante da interni con una collezione di oltre 50 esemplari. Vendo solo piante in ottime condizioni che ho curato personalmente.",
+    },
+    2: {
+      id: "seller2",
+      name: "Giulia Bianchi",
+      location: "Roma, Italia",
+      rating: 4.9,
+      reviews: 67,
+      memberSince: "Gennaio 2022",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+      description:
+        "Botanica di professione con la passione per le piante tropicali. Ogni pianta viene venduta con istruzioni dettagliate per la cura.",
+    },
+    3: {
+      id: "seller3",
+      name: "Luca Verdi",
+      location: "Firenze, Italia",
+      rating: 4.7,
+      reviews: 31,
+      memberSince: "Giugno 2023",
+      avatar:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+      description:
+        "Collezionista di piante rare. Mi piace scambiare e vendere piante per fare spazio a nuove acquisizioni.",
+    },
+    4: {
+      id: "seller4",
+      name: "Sofia Esposito",
+      location: "Napoli, Italia",
+      rating: 4.6,
+      reviews: 28,
+      memberSince: "Settembre 2022",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+      description: "Amante delle piante con un piccolo vivaio casalingo. Vendo piante che ho propagato personalmente.",
+    },
+  }
+
   // Get plant data based on ID
   const plantData = {
     1: {
       name: "Monstera Deliciosa",
-      image: "/images/monstera.png",
+      image:
+        "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
       price: 29.99,
       rating: 4.9,
       reviews: 128,
@@ -22,7 +74,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
     },
     2: {
       name: "Snake Plant",
-      image: "/images/snake-plant.png",
+      image:
+        "https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
       price: 24.99,
       rating: 4.7,
       reviews: 96,
@@ -33,7 +86,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
     },
     3: {
       name: "Fiddle Leaf Fig",
-      image: "/images/fiddle-leaf.png",
+      image:
+        "https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
       price: 34.99,
       rating: 4.6,
       reviews: 112,
@@ -44,7 +98,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
     },
     4: {
       name: "Pothos",
-      image: "/images/pothos.png",
+      image:
+        "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
       price: 19.99,
       rating: 4.9,
       reviews: 145,
@@ -55,7 +110,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
     },
   }[params.id as unknown as number] || {
     name: "Monstera Deliciosa",
-    image: "/images/monstera.png",
+    image:
+      "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
     price: 29.99,
     rating: 4.9,
     reviews: 128,
@@ -166,7 +222,9 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
             <div>
               <div className="mb-4">
                 <Badge className="mb-2 bg-green-100 text-green-800 hover:bg-green-100">Best Seller</Badge>
-                <h1 className="text-3xl font-heading">{plantData.name}</h1>
+                <h1 className="text-3xl font-heading">
+                  {plantData.name} <span className="text-lg text-muted-foreground">(Usata)</span>
+                </h1>
                 <div className="mt-2 flex items-center">
                   <div className="flex items-center">
                     {[1, 2, 3, 4, 5].map((i) => (
@@ -180,8 +238,14 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </div>
 
               <div className="mb-6">
-                <div className="text-2xl font-heading text-green-600">${plantData.price}</div>
-                <p className="text-sm text-muted-foreground">In stock - usually ships within 24 hours</p>
+                <div className="flex items-center gap-2">
+                  <div className="text-2xl font-heading text-green-600">€{(plantData.price * 0.7).toFixed(2)}</div>
+                  <div className="text-sm line-through text-muted-foreground">€{plantData.price}</div>
+                  <Badge className="ml-2 bg-red-100 text-red-800 hover:bg-red-100">-30%</Badge>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Pianta usata - Disponibile per il ritiro o la spedizione
+                </p>
               </div>
 
               <div className="mb-6 space-y-4">
@@ -206,39 +270,57 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </div>
 
               <div className="mb-6">
-                <p className="mb-2 text-sm font-medium">Size</p>
+                <p className="mb-2 text-sm font-medium">Condizione</p>
                 <div className="flex gap-2">
-                  <Button variant="outline" className="rounded-full">
-                    Small (4")
-                  </Button>
-                  <Button variant="outline" className="rounded-full bg-green-50 border-green-600 text-green-600">
-                    Medium (6")
-                  </Button>
-                  <Button variant="outline" className="rounded-full">
-                    Large (8")
-                  </Button>
+                  <Badge className="px-3 py-1 bg-green-100 text-green-800 hover:bg-green-100">
+                    Usata - Ottime condizioni
+                  </Badge>
+                  <Badge variant="outline" className="px-3 py-1">
+                    Età: ~1 anno
+                  </Badge>
                 </div>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Questa pianta è stata curata in un ambiente domestico con luce indiretta. È in ottime condizioni e ha
+                  prodotto nuove foglie negli ultimi mesi.
+                </p>
               </div>
 
-              <div className="mb-6">
-                <p className="mb-2 text-sm font-medium">Quantity</p>
-                <div className="flex items-center">
-                  <Button variant="outline" size="icon" className="h-8 w-8 rounded-full">
-                    <Minus className="h-3 w-3" />
-                    <span className="sr-only">Decrease</span>
-                  </Button>
-                  <span className="mx-4 w-8 text-center">1</span>
-                  <Button variant="outline" size="icon" className="h-8 w-8 rounded-full">
-                    <Plus className="h-3 w-3" />
-                    <span className="sr-only">Increase</span>
-                  </Button>
+              <div className="mb-6 p-4 border rounded-lg">
+                <div className="flex items-start gap-4">
+                  <div className="relative h-16 w-16 overflow-hidden rounded-full">
+                    <Image
+                      src={sellerData.avatar || "/placeholder.svg"}
+                      alt={sellerData.name}
+                      width={64}
+                      height={64}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-heading text-lg">{sellerData.name}</h3>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm">
+                          {sellerData.rating} ({sellerData.reviews} recensioni)
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {sellerData.location} • Membro da {sellerData.memberSince}
+                    </p>
+                    <p className="mt-2 text-sm">{sellerData.description}</p>
+                    <Button variant="outline" size="sm" className="mt-2">
+                      Contatta il venditore
+                    </Button>
+                  </div>
                 </div>
               </div>
 
               <div className="flex gap-4">
                 <Button className="flex-1 bg-green-600 hover:bg-green-700">
                   <ShoppingCart className="mr-2 h-4 w-4" />
-                  Add to Cart
+                  Acquista questa pianta usata
                 </Button>
                 <Button variant="outline" size="icon">
                   <Heart className="h-4 w-4" />
@@ -251,13 +333,13 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
           <Tabs defaultValue="description" className="mb-12">
             <TabsList className="w-full grid grid-cols-3 mb-8">
               <TabsTrigger value="description" className="font-heading">
-                Description
+                Descrizione
               </TabsTrigger>
               <TabsTrigger value="care" className="font-heading">
-                Care Guide
+                Guida alla cura
               </TabsTrigger>
-              <TabsTrigger value="reviews" className="font-heading">
-                Reviews
+              <TabsTrigger value="sale-details" className="font-heading">
+                Dettagli vendita
               </TabsTrigger>
             </TabsList>
             <TabsContent value="description" className="space-y-4">
@@ -541,112 +623,84 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 </div>
               </div>
             </TabsContent>
-            <TabsContent value="reviews" className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-heading">Customer Reviews</h2>
-                <Button className="bg-green-600 hover:bg-green-700">Write a Review</Button>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="text-5xl font-heading">{plantData.rating}</div>
-                  <div className="flex justify-center mt-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
+            <TabsContent value="sale-details" className="space-y-6">
+              <h2 className="text-2xl font-heading mb-6">Dettagli della vendita</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="rounded-lg border p-4">
+                    <h3 className="font-heading mb-2">Informazioni sulla pianta</h3>
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Data di acquisto originale</span>
+                        <span>Maggio 2024</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Motivo della vendita</span>
+                        <span>Trasloco</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Dimensioni attuali</span>
+                        <span>Altezza: 45 cm, Larghezza: 30 cm</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Vaso incluso</span>
+                        <span>Sì, ceramica bianca</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="mt-1 text-sm text-muted-foreground">Based on {plantData.reviews} reviews</div>
-                </div>
-                <div className="flex-1 space-y-1">
-                  {[5, 4, 3, 2, 1].map((rating) => (
-                    <div key={rating} className="flex items-center gap-2">
-                      <div className="text-sm text-muted-foreground w-2">{rating}</div>
-                      <div className="h-2 flex-1 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full bg-yellow-400 rounded-full"
-                          style={{
-                            width:
-                              rating === 5
-                                ? "80%"
-                                : rating === 4
-                                  ? "15%"
-                                  : rating === 3
-                                    ? "3%"
-                                    : rating === 2
-                                      ? "1%"
-                                      : "1%",
-                          }}
-                        />
-                      </div>
-                      <div className="text-sm text-muted-foreground w-8">
-                        {rating === 5 ? "80%" : rating === 4 ? "15%" : rating === 3 ? "3%" : rating === 2 ? "1%" : "1%"}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-6">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="border-b pb-6">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <div className="font-heading">
-                            {i === 1 ? "Emily Johnson" : i === 2 ? "Michael Chen" : "Sarah Williams"}
-                          </div>
-                          <Badge variant="outline" className="text-xs">
-                            Verified Purchase
-                          </Badge>
-                        </div>
-                        <div className="flex items-center mt-1">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star key={star} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          ))}
-                          <span className="ml-2 text-xs text-muted-foreground">2 months ago</span>
-                        </div>
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {i === 1 ? "Jun 12, 2025" : i === 2 ? "May 28, 2025" : "Apr 15, 2025"}
-                      </div>
-                    </div>
-                    <h3 className="font-heading mt-2">
-                      {i === 1
-                        ? "Beautiful, healthy plant!"
-                        : i === 2
-                          ? "Exceeded my expectations"
-                          : "Perfect addition to my collection"}
-                    </h3>
-                    <p className="mt-2 text-sm">
-                      {i === 1
-                        ? `My ${plantData.name} arrived in perfect condition. The leaves are large and healthy with beautiful fenestrations. It was packaged extremely well and the soil was still slightly moist. Very happy with my purchase!`
-                        : i === 2
-                          ? `This plant is even more beautiful in person than in the photos. It arrived quickly and was very well packaged. The plant is healthy and has already put out a new leaf in the two weeks I've had it. Highly recommend!`
-                          : `I've been looking for a good sized ${plantData.name} for months and this one is perfect. The shipping was fast and the plant arrived in great condition with no damage. The care instructions were very helpful too.`}
+
+                  <div className="rounded-lg border p-4">
+                    <h3 className="font-heading mb-2">Storia della pianta</h3>
+                    <p className="text-sm">
+                      Questa {plantData.name} è stata acquistata da un vivaio locale circa un anno fa. È cresciuta in un
+                      ambiente con luce indiretta brillante vicino a una finestra esposta a est. Ha prodotto 3 nuove
+                      foglie negli ultimi mesi e non ha mai avuto problemi di parassiti o malattie.
                     </p>
-                    <div className="mt-4 flex gap-2">
-                      {i === 1 && (
-                        <>
-                          <Image
-                            src={plantData.image || "/placeholder.svg"}
-                            alt="Review photo"
-                            width={80}
-                            height={80}
-                            className="rounded-md object-cover"
-                          />
-                          <Image
-                            src={plantData.image || "/placeholder.svg"}
-                            alt="Review photo"
-                            width={80}
-                            height={80}
-                            className="rounded-md object-cover"
-                          />
-                        </>
-                      )}
-                    </div>
                   </div>
-                ))}
-              </div>
-              <div className="flex justify-center">
-                <Button variant="outline">Load More Reviews</Button>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="rounded-lg border p-4">
+                    <h3 className="font-heading mb-2">Dettagli spedizione</h3>
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Metodo di consegna</span>
+                        <span>Ritiro di persona o spedizione</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Località di ritiro</span>
+                        <span>{sellerData.location}</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Costo spedizione</span>
+                        <span>€12,99 (Italia)</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Tempo di preparazione</span>
+                        <span>1-2 giorni lavorativi</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="rounded-lg border p-4">
+                    <h3 className="font-heading mb-2">Politiche del venditore</h3>
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Resi</span>
+                        <span>Non accettati per piante usate</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Garanzia</span>
+                        <span>7 giorni per danni da trasporto</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-muted-foreground">Metodi di pagamento</span>
+                        <span>PayPal, Bonifico, Contanti (ritiro)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </TabsContent>
           </Tabs>
@@ -658,7 +712,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="/images/monstera.png"
+                      src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                       alt="Monstera Deliciosa"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -680,7 +734,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="/images/snake-plant.png"
+                      src="https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                       alt="Snake Plant"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -702,7 +756,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="/images/fiddle-leaf.png"
+                      src="https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                       alt="Fiddle Leaf Fig"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -724,7 +778,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="/images/pothos.png"
+                      src="https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                       alt="Pothos"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -746,7 +800,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="/images/zz-plant.png"
+                      src="https://images.unsplash.com/photo-1632321941433-416736b82c90?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                       alt="ZZ Plant"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"

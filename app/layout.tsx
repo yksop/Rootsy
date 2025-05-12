@@ -1,15 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Barlow } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
-
-// Import Barlow from Google Fonts
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-barlow",
-})
+import { AuthProvider } from "@/contexts/auth-context"
 
 // Import Arbutus Slab as a local font
 // const arbutusSlab = localFont({
@@ -32,7 +25,8 @@ const arbutusSlab = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-arbutus-slab",
+  variable: "--font-roc-grotesk",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -48,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.variable} ${arbutusSlab.variable} font-sans`}>{children}</body>
+      <body className={`${rocGrotesk.variable} font-roc`}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   )
 }
