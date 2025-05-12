@@ -22,9 +22,6 @@ export default function Home() {
             <Link href="/plantsitting" className="text-sm font-medium hover:text-green-600 transition-colors">
               Plant Sitting
             </Link>
-            <Link href="/community" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Community
-            </Link>
             <Link href="/about" className="text-sm font-medium hover:text-green-600 transition-colors">
               About
             </Link>
@@ -77,20 +74,27 @@ export default function Home() {
             className="w-full h-[500px] object-cover object-center scale-90"
             priority
           />
-          <div className="container absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-            <h1 className="text-4xl font-heading tracking-tight sm:text-5xl md:text-6xl">
-              Your Plants Deserve the Best Care
-            </h1>
-            <p className="mt-6 max-w-md text-lg">
-              Find plant sitters for your green friends or discover new plants to add to your collection.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                Find a Plant Sitter
-              </Button>
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                Shop Plants
-              </Button>
+          <div className="absolute inset-0 bg-black/30 z-10"></div>
+          <div className="container absolute inset-0 z-20 flex flex-col items-center justify-center text-center">
+            <div className="max-w-3xl p-6 rounded-lg bg-black/40 backdrop-blur-sm">
+              <h1 className="text-4xl font-heading tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-lg">
+                Your Plants Deserve the Best Care
+              </h1>
+              <p className="mt-6 max-w-md mx-auto text-lg text-white drop-shadow-md">
+                Find plant sitters for your green friends or discover new plants to add to your collection.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/plantsitting">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium">
+                    Find a Plant Sitter
+                  </Button>
+                </Link>
+                <Link href="/marketplace">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium">
+                    Shop Plants
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -156,7 +160,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="/images/monstera.png"
+                          src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                           alt="Monstera Deliciosa"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -178,7 +182,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="/images/snake-plant.png"
+                          src="https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                           alt="Snake Plant"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -200,7 +204,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="/images/fiddle-leaf.png"
+                          src="https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                           alt="Fiddle Leaf Fig"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -222,7 +226,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="/images/pothos.png"
+                          src="https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                           alt="Pothos"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -344,51 +348,6 @@ export default function Home() {
                 </div>
               </TabsContent>
             </Tabs>
-          </div>
-        </section>
-
-        <section className="container py-12 md:py-16">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <div>
-              <h2 className="text-3xl font-heading tracking-tight">Join Our Community</h2>
-              <p className="text-muted-foreground mt-2">Connect with plant lovers and experts</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-lg border bg-white p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-xl font-heading mb-4">Become a Plant Sitter</h3>
-                <p className="text-muted-foreground mb-6">
-                  Turn your plant passion into income. Set your own schedule and rates while helping fellow plant
-                  lovers.
-                </p>
-                <Link href="/become-sitter">
-                  <Button className="bg-green-600 hover:bg-green-700">Get Started</Button>
-                </Link>
-              </div>
-              <div className="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-20">
-                <Image src="/images/plant-care.png" alt="Plant Care" fill className="object-contain object-bottom" />
-              </div>
-            </div>
-            <div className="rounded-lg border bg-white p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-xl font-heading mb-4">Sell Your Plants</h3>
-                <p className="text-muted-foreground mb-6">
-                  Have extra plants or propagations? List them on our marketplace and connect with buyers in your area.
-                </p>
-                <Link href="/become-seller">
-                  <Button className="bg-green-600 hover:bg-green-700">Start Selling</Button>
-                </Link>
-              </div>
-              <div className="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-20">
-                <Image
-                  src="/images/plant-seller.png"
-                  alt="Plant Seller"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-            </div>
           </div>
         </section>
 

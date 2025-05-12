@@ -63,7 +63,7 @@
   h4,
   h5,
   h6 {
-    @apply font-heading;
+    @apply font-roc;
   }
   p,
   span,
@@ -73,15 +73,15 @@
   input,
   textarea,
   select {
-    @apply font-sans;
+    @apply font-roc;
   }
 }
 
 @layer utilities {
-  .font-heading {
-    font-family: var(--font-arbutus-slab);
+  .font-roc {
+    font-family: var(--font-roc-grotesk);
   }
-  .font-sans {
-    font-family: var(--font-barlow);
+  .font-heading {
+    font-family: var(--font-roc-grotesk);
   }
 }
