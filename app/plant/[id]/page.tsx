@@ -19,7 +19,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
       avatar:
         "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       description:
-        "Appassionato di piante da interni con una collezione di oltre 50 esemplari. Vendo solo piante in ottime condizioni che ho curato personalmente.",
+        "Passionate about indoor plants with a collection of over 50 specimens. I only sell plants in excellent condition that I have personally cared for.",
     },
     2: {
       id: "seller2",
@@ -31,7 +31,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       description:
-        "Botanica di professione con la passione per le piante tropicali. Ogni pianta viene venduta con istruzioni dettagliate per la cura.",
+        "Botanist by profession with a passion for tropical plants. Each plant is sold with detailed care instructions.",
     },
     3: {
       id: "seller3",
@@ -43,7 +43,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
       avatar:
         "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       description:
-        "Collezionista di piante rare. Mi piace scambiare e vendere piante per fare spazio a nuove acquisizioni.",
+        "Collector of rare plants. I like to trade and sell plants to make room for new acquisitions.",
     },
     4: {
       id: "seller4",
@@ -54,7 +54,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
       memberSince: "Settembre 2022",
       avatar:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
-      description: "Amante delle piante con un piccolo vivaio casalingo. Vendo piante che ho propagato personalmente.",
+      description: "Plant lover with a small home nursery. I sell plants that I have propagated myself.",
     },
   }
 
@@ -225,28 +225,16 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               <div className="mb-4">
                 <Badge className="mb-2 bg-green-100 text-green-800 hover:bg-green-100">Top vendor</Badge>
                 <h1 className="text-3xl font-heading">
-                  {plantData.name} <span className="text-lg text-muted-foreground">(Usata)</span>
+                  {plantData.name} <span className="text-lg text-muted-foreground">(Used)</span>
                 </h1>
                 <p className="text-sm text-muted-foreground">
-                  Pianta usata - Disponibile per il ritiro o la spedizione
+                  Used plant - Available for on place pickup or shipping
                 </p>
-                {/* <div className="mt-2 flex items-center">
-                  <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <span className="ml-2 text-sm text-muted-foreground">
-                    {plantData.rating} ({plantData.reviews} reviews)
-                  </span>
-                </div> */}
               </div>
 
               <div className="mb-6">
                 <div className="flex items-center gap-2">
                   <div className="text-2xl font-heading text-green-600">€{(plantData.price)}</div>
-                  {/* <div className="text-sm line-through text-muted-foreground">€{plantData.price}</div> */}
-                  {/* <Badge className="ml-2 bg-red-100 text-red-800 hover:bg-red-100">-30%</Badge> */}
                 </div>
               </div>
 
@@ -272,18 +260,17 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </div>
 
               <div className="mb-6">
-                <p className="mb-2 text-sm font-medium">Condizione</p>
+                <p className="mb-2 text-sm font-medium">Condition</p>
                 <div className="flex gap-2">
                   <Badge className="px-3 py-1 bg-green-100 text-green-800 hover:bg-green-100">
-                    Usata - Ottime condizioni
+                    Used - Good shape
                   </Badge>
                   <Badge variant="outline" className="px-3 py-1">
-                    Età: ~1 anno
+                    Age: ~1 year
                   </Badge>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Questa pianta è stata curata in un ambiente domestico con luce indiretta. È in ottime condizioni e ha
-                  prodotto nuove foglie negli ultimi mesi.
+                  This plant has been cared for in a home environment with indirect light. It is in excellent condition and has produced new leaves in the last few months.
                 </p>
               </div>
 
@@ -304,12 +291,12 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm">
-                          {sellerData[1]?.rating} ({sellerData[1]?.reviews} recensioni)
+                          {sellerData[1]?.rating} ({sellerData[1]?.reviews} reviews)
                         </span>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {sellerData[1]?.location} • Membro da {sellerData[1]?.memberSince}
+                      {sellerData[1]?.location} • Member from {sellerData[1]?.memberSince}
                     </p>
                     <p className="mt-2 text-sm">{sellerData[1]?.description}</p>
                     <Button variant="outline" size="sm" className="mt-2">
@@ -335,13 +322,13 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
           <Tabs defaultValue="description" className="mb-12">
             <TabsList className="w-full grid grid-cols-3 mb-8">
               <TabsTrigger value="description" className="font-heading">
-                Descrizione
+                Description
               </TabsTrigger>
               <TabsTrigger value="care" className="font-heading">
-                Guida alla cura
+                Care guide
               </TabsTrigger>
               <TabsTrigger value="sale-details" className="font-heading">
-                Dettagli vendita
+                Selling details
               </TabsTrigger>
             </TabsList>
             <TabsContent value="description" className="space-y-4">
@@ -626,79 +613,75 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
               </div>
             </TabsContent>
             <TabsContent value="sale-details" className="space-y-6">
-              <h2 className="text-2xl font-heading mb-6">Dettagli della vendita</h2>
+              <h2 className="text-2xl font-heading mb-6">Selling details</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div className="rounded-lg border p-4">
-                    <h3 className="font-heading mb-2">Informazioni sulla pianta</h3>
+                    <h3 className="font-heading mb-2">Plants insights</h3>
                     <ul className="space-y-3 text-sm">
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Data di acquisto originale</span>
-                        <span>Maggio 2024</span>
+                        <span className="text-muted-foreground">Original purchase date</span>
+                        <span>May 2024</span>
                       </li>
                       <li className="flex justify-between">
                         <span className="text-muted-foreground">Motivo della vendita</span>
-                        <span>Trasloco</span>
+                        <span>Move</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Dimensioni attuali</span>
-                        <span>Altezza: 45 cm, Larghezza: 30 cm</span>
+                        <span className="text-muted-foreground">Actual dimensions</span>
+                        <span>High: 45 cm, Lenght: 30 cm</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Vaso incluso</span>
-                        <span>Sì, ceramica bianca</span>
+                        <span className="text-muted-foreground">Vase included</span>
+                        <span>Yes, white ceraminc</span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="rounded-lg border p-4">
-                    <h3 className="font-heading mb-2">Storia della pianta</h3>
+                    <h3 className="font-heading mb-2">Plant history</h3>
                     <p className="text-sm">
-                      Questa {plantData.name} è stata acquistata da un vivaio locale circa un anno fa. È cresciuta in un
-                      ambiente con luce indiretta brillante vicino a una finestra esposta a est. Ha prodotto 3 nuove
-                      foglie negli ultimi mesi e non ha mai avuto problemi di parassiti o malattie.
+                      This {plantData.name} was purchased from a local nursery about a year ago. It has been growing in
+                      bright indirect light near an east-facing window. It has produced 3 new leaves
+                      in the last few months and has never had any pest or disease problems.
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="rounded-lg border p-4">
-                    <h3 className="font-heading mb-2">Dettagli spedizione</h3>
+                    <h3 className="font-heading mb-2">Shipping details</h3>
                     <ul className="space-y-3 text-sm">
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Metodo di consegna</span>
-                        <span>Ritiro di persona o spedizione</span>
+                        <span className="text-muted-foreground">Delivery method</span>
+                        <span>Pick up in person or ship</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Località di ritiro</span>
+                        <span className="text-muted-foreground">Pick up location</span>
                         <span>{sellerData.location}</span>
                       </li>
                       <li className="flex justify-between">
                         <span className="text-muted-foreground">Costo spedizione</span>
-                        <span>€12,99 (Italia)</span>
+                        <span>€12,99 (Italy)</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Tempo di preparazione</span>
-                        <span>1-2 giorni lavorativi</span>
+                        <span className="text-muted-foreground">Preparation time</span>
+                        <span>1-2 working days</span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="rounded-lg border p-4">
-                    <h3 className="font-heading mb-2">Politiche del venditore</h3>
+                    <h3 className="font-heading mb-2">Seller policies</h3>
                     <ul className="space-y-3 text-sm">
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Resi</span>
-                        <span>Non accettati per piante usate</span>
+                        <span className="text-muted-foreground">Returns</span>
+                        <span>Not accepted</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Garanzia</span>
-                        <span>7 giorni per danni da trasporto</span>
-                      </li>
-                      <li className="flex justify-between">
-                        <span className="text-muted-foreground">Metodi di pagamento</span>
-                        <span>PayPal, Bonifico, Contanti (ritiro)</span>
+                        <span className="text-muted-foreground">Warranty</span>
+                        <span>7 days for shipping damages</span>
                       </li>
                     </ul>
                   </div>

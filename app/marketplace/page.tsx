@@ -10,12 +10,55 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
+import { RangeSlider } from "@/components/ui/range-slider"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
 export default function MarketplacePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("featured");
+  const [filtersApplied, setFiltersApplied] = useState(false);
+  const [tempFilters, setTempFilters] = useState({
+    priceRange: [0, 100],
+    plantType: {
+      indoor: false,
+      outdoor: false,
+      succulents: false,
+      tropical: false,
+      cacti: false
+    },
+    lightRequirements: {
+      lowLight: false,
+      mediumLight: false,
+      brightLight: false
+    },
+    careLevel: {
+      beginner: false,
+      intermediate: false,
+      expert: false
+    }
+  });
+
+  const [filters, setFilters] = useState({
+    priceRange: [0, 100],
+    plantType: {
+      indoor: false,
+      outdoor: false,
+      succulents: false,
+      tropical: false,
+      cacti: false
+    },
+    lightRequirements: {
+      lowLight: false,
+      mediumLight: false,
+      brightLight: false
+    },
+    careLevel: {
+      beginner: false,
+      intermediate: false,
+      expert: false
+    }
+  });
 
   // Plant data for the marketplace
   const plants = [
@@ -141,12 +184,130 @@ export default function MarketplacePage() {
     },
   ]
 
+  const resetFilters = () => {
+    setTempFilters({
+      priceRange: [0, 100],
+      plantType: {
+        indoor: false,
+        outdoor: false,
+        succulents: false,
+        tropical: false,
+        cacti: false
+      },
+      lightRequirements: {
+        lowLight: false,
+        mediumLight: false,
+        brightLight: false
+      },
+      careLevel: {
+        beginner: false,
+        intermediate: false,
+        expert: false
+      }
+    });
+  };
+
+  // Funzione per applicare i filtri
+  const applyFilters = () => {
+    setFilters({ ...tempFilters });
+    setFiltersApplied(true);
+  };
+
+  // Funzione per gestire il cambiamento del tipo di pianta
+  const handlePlantTypeChange = (type: string) => {
+    setTempFilters({
+      ...tempFilters,
+      plantType: {
+        ...tempFilters.plantType,
+        [type]: !tempFilters.plantType[type as keyof typeof tempFilters.plantType]
+      }
+    });
+  };
+
+  // Funzione per gestire il cambiamento dei requisiti di luce
+  const handleLightRequirementsChange = (level: string) => {
+    setTempFilters({
+      ...tempFilters,
+      lightRequirements: {
+        ...tempFilters.lightRequirements,
+        [level]: !tempFilters.lightRequirements[level as keyof typeof tempFilters.lightRequirements]
+      }
+    });
+  };
+
+  // Funzione per gestire il cambiamento del livello di cura
+  const handleCareLevelChange = (level: string) => {
+    setTempFilters({
+      ...tempFilters,
+      careLevel: {
+        ...tempFilters.careLevel,
+        [level]: !tempFilters.careLevel[level as keyof typeof tempFilters.careLevel]
+      }
+    });
+  };
+
   // Filtrare le piante in base al termine di ricerca
-  const filteredPlants = plants.filter(plant =>
-    plant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    plant.lightLevel.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    plant.careLevel.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPlants = plants.filter(plant => {
+    // Filtraggio per termine di ricerca
+    const matchesSearch =
+      plant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      plant.lightLevel.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      plant.careLevel.toLowerCase().includes(searchTerm.toLowerCase());
+
+    if (!matchesSearch) return false;
+
+    // Filtraggio per prezzo se i filtri sono applicati
+    if (filtersApplied) {
+      // Filtraggio per prezzo
+      if (plant.price < filters.priceRange[0] || plant.price > filters.priceRange[1]) return false;
+
+      // Filtraggio per livello di cura
+      const careLevelSelected = Object.values(filters.careLevel).some(v => v);
+      if (careLevelSelected) {
+        const matchesBeginner = filters.careLevel.beginner && plant.careLevel === "Easy";
+        const matchesIntermediate = filters.careLevel.intermediate && plant.careLevel === "Moderate";
+        const matchesExpert = filters.careLevel.expert && plant.careLevel === "Expert";
+
+        if (!(matchesBeginner || matchesIntermediate || matchesExpert)) return false;
+      }
+
+      // Filtraggio per requisiti di luce
+      const lightSelected = Object.values(filters.lightRequirements).some(v => v);
+      if (lightSelected) {
+        const matchesLowLight = filters.lightRequirements.lowLight &&
+          plant.lightLevel.toLowerCase().includes("low");
+        const matchesMediumLight = filters.lightRequirements.mediumLight &&
+          plant.lightLevel.toLowerCase().includes("medium");
+        const matchesBrightLight = filters.lightRequirements.brightLight &&
+          (plant.lightLevel.toLowerCase().includes("bright") ||
+            plant.lightLevel.toLowerCase().includes("high"));
+
+        if (!(matchesLowLight || matchesMediumLight || matchesBrightLight)) return false;
+      }
+
+      // Nota: Per il tipo di pianta, dovremmo avere dati più specifici
+      // Questo è un esempio che simula il filtro basandosi sul nome
+      const plantTypeSelected = Object.values(filters.plantType).some(v => v);
+      if (plantTypeSelected) {
+        const matchesIndoor = filters.plantType.indoor &&
+          !plant.lightLevel.toLowerCase().includes("direct");
+        const matchesOutdoor = filters.plantType.outdoor &&
+          plant.lightLevel.toLowerCase().includes("direct");
+        const matchesSucculents = filters.plantType.succulents &&
+          (plant.name.toLowerCase().includes("aloe") ||
+            plant.name.toLowerCase().includes("string of pearls"));
+        const matchesTropical = filters.plantType.tropical &&
+          (plant.name.toLowerCase().includes("monstera") ||
+            plant.name.toLowerCase().includes("bird of paradise"));
+        const matchesCacti = filters.plantType.cacti &&
+          plant.name.toLowerCase().includes("cacti");
+
+        if (!(matchesIndoor || matchesOutdoor || matchesSucculents || matchesTropical || matchesCacti)) return false;
+      }
+    }
+
+    return true;
+  });
 
   // Ordinare le piante in base al criterio selezionato
   const sortedPlants = [...filteredPlants].sort((a, b) => {
@@ -278,33 +439,59 @@ export default function MarketplacePage() {
                   <div className="grid gap-6 py-6">
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium font-heading">Price Range</h3>
-                      <Slider defaultValue={[0, 100]} max={200} step={1} />
+                      <RangeSlider
+                        value={tempFilters.priceRange}
+                        onValueChange={(value) => setTempFilters({ ...tempFilters, priceRange: value })}
+                        max={100}
+                        step={1}
+                        minStepsBetweenThumbs={1}
+                      />
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">$0</span>
-                        <span className="text-xs text-muted-foreground">$200+</span>
+                        <span className="text-xs text-muted-foreground">€{tempFilters.priceRange[0]}</span>
+                        <span className="text-xs text-muted-foreground">€{tempFilters.priceRange[1]}</span>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium font-heading">Plant Type</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="indoor" />
+                          <Checkbox
+                            id="indoor"
+                            checked={tempFilters.plantType.indoor}
+                            onCheckedChange={() => handlePlantTypeChange('indoor')}
+                          />
                           <Label htmlFor="indoor">Indoor Plants</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="outdoor" />
+                          <Checkbox
+                            id="outdoor"
+                            checked={tempFilters.plantType.outdoor}
+                            onCheckedChange={() => handlePlantTypeChange('outdoor')}
+                          />
                           <Label htmlFor="outdoor">Outdoor Plants</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="succulents" />
+                          <Checkbox
+                            id="succulents"
+                            checked={tempFilters.plantType.succulents}
+                            onCheckedChange={() => handlePlantTypeChange('succulents')}
+                          />
                           <Label htmlFor="succulents">Succulents</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="tropical" />
+                          <Checkbox
+                            id="tropical"
+                            checked={tempFilters.plantType.tropical}
+                            onCheckedChange={() => handlePlantTypeChange('tropical')}
+                          />
                           <Label htmlFor="tropical">Tropical</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="cacti" />
+                          <Checkbox
+                            id="cacti"
+                            checked={tempFilters.plantType.cacti}
+                            onCheckedChange={() => handlePlantTypeChange('cacti')}
+                          />
                           <Label htmlFor="cacti">Cacti</Label>
                         </div>
                       </div>
@@ -313,15 +500,27 @@ export default function MarketplacePage() {
                       <h3 className="text-sm font-medium font-heading">Light Requirements</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="low-light" />
+                          <Checkbox
+                            id="low-light"
+                            checked={tempFilters.lightRequirements.lowLight}
+                            onCheckedChange={() => handleLightRequirementsChange('lowLight')}
+                          />
                           <Label htmlFor="low-light">Low Light</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="medium-light" />
+                          <Checkbox
+                            id="medium-light"
+                            checked={tempFilters.lightRequirements.mediumLight}
+                            onCheckedChange={() => handleLightRequirementsChange('mediumLight')}
+                          />
                           <Label htmlFor="medium-light">Medium Light</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="bright-light" />
+                          <Checkbox
+                            id="bright-light"
+                            checked={tempFilters.lightRequirements.brightLight}
+                            onCheckedChange={() => handleLightRequirementsChange('brightLight')}
+                          />
                           <Label htmlFor="bright-light">Bright Light</Label>
                         </div>
                       </div>
@@ -330,23 +529,35 @@ export default function MarketplacePage() {
                       <h3 className="text-sm font-medium font-heading">Care Level</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="beginner" />
+                          <Checkbox
+                            id="beginner"
+                            checked={tempFilters.careLevel.beginner}
+                            onCheckedChange={() => handleCareLevelChange('beginner')}
+                          />
                           <Label htmlFor="beginner">Beginner Friendly</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="intermediate" />
+                          <Checkbox
+                            id="intermediate"
+                            checked={tempFilters.careLevel.intermediate}
+                            onCheckedChange={() => handleCareLevelChange('intermediate')}
+                          />
                           <Label htmlFor="intermediate">Intermediate</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="expert" />
+                          <Checkbox
+                            id="expert"
+                            checked={tempFilters.careLevel.expert}
+                            onCheckedChange={() => handleCareLevelChange('expert')}
+                          />
                           <Label htmlFor="expert">Expert</Label>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <Button variant="outline">Reset</Button>
-                    <Button className="bg-green-600 hover:bg-green-700">Apply Filters</Button>
+                    <Button variant="outline" onClick={resetFilters}>Reset</Button>
+                    <Button className="bg-green-600 hover:bg-green-700" onClick={applyFilters}>Apply Filters</Button>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -356,7 +567,10 @@ export default function MarketplacePage() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Showing {plants.length} results</span>
+              <span className="text-sm text-muted-foreground">
+                Showing {sortedPlants.length} results
+                {filtersApplied && " with filters"}
+              </span>
             </div>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[180px]">
