@@ -1,3 +1,6 @@
+"use client"  // Aggiungiamo questa direttiva per poter usare gli stati in React
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Filter, MapPin, Search, SlidersHorizontal, Star } from "lucide-react"
@@ -7,11 +10,278 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
+import { RangeSlider } from "@/components/ui/range-slider"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 
 export default function PlantsittingPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("distance");
+  const [priceRange, setPriceRange] = useState([0, 50]);
+  const [distance, setDistance] = useState([5]);
+  const [services, setServices] = useState({
+    watering: false,
+    fertilizing: false,
+    pruning: false,
+    repotting: false,
+    pestControl: false
+  });
+  const [experienceLevel, setExperienceLevel] = useState({
+    beginner: false,
+    intermediate: false,
+    expert: false
+  });
+  const [availability, setAvailability] = useState({
+    weekdays: false,
+    weekends: false,
+    holidays: false
+  });
+
+  const [filtersApplied, setFiltersApplied] = useState(false);
+  const [tempFilters, setTempFilters] = useState({
+    priceRange: [0, 50],
+    distance: [5],
+    services: { ...services },
+    experienceLevel: { ...experienceLevel },
+    availability: { ...availability }
+  });
+
+  const resetFilters = () => {
+    setTempFilters({
+      priceRange: [0, 50],
+      distance: [5],
+      services: {
+        watering: false,
+        fertilizing: false,
+        pruning: false,
+        repotting: false,
+        pestControl: false
+      },
+      experienceLevel: {
+        beginner: false,
+        intermediate: false,
+        expert: false
+      },
+      availability: {
+        weekdays: false,
+        weekends: false,
+        holidays: false
+      }
+    });
+  };
+
+  const applyFilters = () => {
+    setPriceRange(tempFilters.priceRange);
+    setDistance(tempFilters.distance);
+    setServices({ ...tempFilters.services });
+    setExperienceLevel({ ...tempFilters.experienceLevel });
+    setAvailability({ ...tempFilters.availability });
+    setFiltersApplied(true);
+  };
+
+  // Definisci i tipi per i servizi, i livelli di esperienza e la disponibilità
+  type ServiceKey = 'watering' | 'fertilizing' | 'pruning' | 'repotting' | 'pestControl';
+  type ExperienceLevelKey = 'beginner' | 'intermediate' | 'expert';
+  type AvailabilityKey = 'weekdays' | 'weekends' | 'holidays';
+
+  // Modifica le funzioni di gestione dei cambiamenti specificando i tipi
+  const handleServiceChange = (service: ServiceKey) => {
+    setTempFilters({
+      ...tempFilters,
+      services: {
+        ...tempFilters.services,
+        [service]: !tempFilters.services[service]
+      }
+    });
+  };
+
+  const handleExperienceChange = (level: ExperienceLevelKey) => {
+    setTempFilters({
+      ...tempFilters,
+      experienceLevel: {
+        ...tempFilters.experienceLevel,
+        [level]: !tempFilters.experienceLevel[level]
+      }
+    });
+  };
+
+  const handleAvailabilityChange = (type: AvailabilityKey) => {
+    setTempFilters({
+      ...tempFilters,
+      availability: {
+        ...tempFilters.availability,
+        [type]: !tempFilters.availability[type]
+      }
+    });
+  };
+
+  const sitters = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop",
+      rating: 4.9,
+      reviews: 24,
+      distance: 2.5,
+      description: "Plant enthusiast with 5+ years of experience caring for all types of indoor plants.",
+      price: 15,
+      badges: ["Watering", "Pruning", "Fertilizing"],
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop",
+      rating: 4.8,
+      reviews: 18,
+      distance: 3.2,
+      description: "Certified botanist specializing in tropical plants and succulents.",
+      price: 18,
+      badges: ["Watering", "Repotting", "Pest Control"],
+    },
+    {
+      id: 3,
+      name: "Emma Rodriguez",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+      rating: 4.7,
+      reviews: 31,
+      distance: 1.8,
+      description: "Passionate plant lover with expertise in rare and exotic species.",
+      price: 16,
+      badges: ["Watering", "Pruning", "Plant Health"],
+    },
+    {
+      id: 4,
+      name: "David Kim",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+      rating: 4.6,
+      reviews: 15,
+      distance: 4.1,
+      description: "Horticulture student with a focus on indoor plant ecosystems.",
+      price: 14,
+      badges: ["Watering", "Fertilizing", "Light Management"],
+    },
+    {
+      id: 5,
+      name: "Olivia Martinez",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
+      rating: 4.9,
+      reviews: 27,
+      distance: 2.3,
+      description: "Former greenhouse manager with extensive knowledge of plant care.",
+      price: 20,
+      badges: ["Full Service", "Repotting", "Pest Control"],
+    },
+    {
+      id: 6,
+      name: "James Wilson",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+      rating: 4.7,
+      reviews: 22,
+      distance: 3.7,
+      description: "Plant enthusiast specializing in air purifying plants and ferns.",
+      price: 17,
+      badges: ["Watering", "Humidity Control", "Propagation"],
+    },
+    {
+      id: 7,
+      name: "Sophia Lee",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
+      rating: 4.8,
+      reviews: 19,
+      distance: 1.5,
+      description: "Experienced with rare tropical plants and creating optimal growing conditions.",
+      price: 19,
+      badges: ["Specialized Care", "Propagation", "Seasonal Care"],
+    },
+    {
+      id: 8,
+      name: "Ethan Brown",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
+      rating: 4.6,
+      reviews: 14,
+      distance: 5.2,
+      description: "Plant collector focusing on cacti and succulents with desert-like conditions.",
+      price: 16,
+      badges: ["Drought Plants", "Soil Management", "Watering"],
+    },
+    {
+      id: 9,
+      name: "Ava Thompson",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+      rating: 4.9,
+      reviews: 33,
+      distance: 2.8,
+      description: "Botanical garden volunteer with expertise in a wide variety of plant species.",
+      price: 18,
+      badges: ["Full Service", "Plant Rotation", "Light Management"],
+    },
+  ]
+
+  // Filtrare i sitter in base al termine di ricerca
+  // Filtrare i sitter in base al termine di ricerca e ai filtri applicati
+  const filteredSitter = sitters.filter(sitter => {
+    // Filtraggio per termine di ricerca
+    const matchesSearch =
+      sitter.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      sitter.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      sitter.badges.some(badge => badge.toLowerCase().includes(searchTerm.toLowerCase()));
+
+    if (!matchesSearch) return false;
+
+    // Filtraggio per prezzo se i filtri sono applicati
+    if (filtersApplied) {
+      if (sitter.price < priceRange[0] || sitter.price > priceRange[1]) return false;
+
+      // Filtraggio per distanza
+      if (sitter.distance > distance[0]) return false;
+
+      // Filtraggio per servizi
+      const servicesSelected = Object.values(services).some(v => v);
+      if (servicesSelected) {
+        const hasWatering = services.watering && sitter.badges.includes("Watering");
+        const hasFertilizing = services.fertilizing && sitter.badges.includes("Fertilizing");
+        const hasPruning = services.pruning && sitter.badges.includes("Pruning");
+        const hasRepotting = services.repotting && sitter.badges.includes("Repotting");
+        const hasPestControl = services.pestControl && sitter.badges.includes("Pest Control");
+
+        if (!(hasWatering || hasFertilizing || hasPruning || hasRepotting || hasPestControl)) return false;
+      }
+
+      // Filtraggio per esperienza (simulazione basata su ID, in un'app reale useremmo anni di esperienza)
+      const expSelected = Object.values(experienceLevel).some(v => v);
+      if (expSelected) {
+        const isBeginner = experienceLevel.beginner && sitter.id > 6; // Simulazione: ID più alto = più recente = principiante
+        const isIntermediate = experienceLevel.intermediate && (sitter.id > 3 && sitter.id <= 6);
+        const isExpert = experienceLevel.expert && sitter.id <= 3;
+
+        if (!(isBeginner || isIntermediate || isExpert)) return false;
+      }
+
+      // Per la disponibilità, in un'app reale avremmo dati effettivi sulla disponibilità
+      // Qui facciamo solo una simulazione
+    }
+
+    return true;
+  });
+
+  const sortedSitter = [...filteredSitter].sort((a, b) => {
+    switch (sortBy) {
+      case "distance":
+        return b.distance - a.distance;
+      case "price-low":
+        return a.price - b.price;
+      case "price-high":
+        return b.price - a.price;
+      case "rating":
+        return b.rating - a.rating;
+      case "experience":
+        return a.id - b.id;
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -116,7 +386,13 @@ export default function PlantsittingPage() {
             <div className="flex items-center gap-2 w-full md:w-auto">
               <div className="relative w-full md:w-[300px]">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="Search by location..." className="w-full pl-8" />
+                <Input
+                  type="search"
+                  placeholder="Search plantsitter..."
+                  className="w-full pl-8"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
               <Sheet>
                 <SheetTrigger asChild>
@@ -133,41 +409,72 @@ export default function PlantsittingPage() {
                   <div className="grid gap-6 py-6">
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium font-heading">Price Range (per day)</h3>
-                      <Slider defaultValue={[0, 50]} max={100} step={1} />
+                      <RangeSlider
+                        value={tempFilters.priceRange}
+                        onValueChange={(value) => setTempFilters({ ...tempFilters, priceRange: value })}
+                        max={100}
+                        step={1}
+                        minStepsBetweenThumbs={1}
+                      />
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">$0</span>
-                        <span className="text-xs text-muted-foreground">$100+</span>
+                        <span className="text-xs text-muted-foreground">€{tempFilters.priceRange[0]}</span>
+                        <span className="text-xs text-muted-foreground">€{tempFilters.priceRange[1]}</span>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium font-heading">Distance</h3>
-                      <Slider defaultValue={[5]} max={50} step={1} />
+                      <Slider
+                        value={tempFilters.distance}
+                        onValueChange={(value) => setTempFilters({ ...tempFilters, distance: value })}
+                        max={50}
+                        step={1}
+                      />
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">0 miles</span>
-                        <span className="text-xs text-muted-foreground">50+ miles</span>
+                        <span className="text-xs text-muted-foreground">0 kilometers</span>
+                        <span className="text-xs text-muted-foreground">{tempFilters.distance[0]} kilometers</span>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium font-heading">Services</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="watering" />
+                          <Checkbox
+                            id="watering"
+                            checked={tempFilters.services.watering}
+                            onCheckedChange={() => handleServiceChange('watering')}
+                          />
                           <Label htmlFor="watering">Watering</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="fertilizing" />
+                          <Checkbox
+                            id="fertilizing"
+                            checked={tempFilters.services.fertilizing}
+                            onCheckedChange={() => handleServiceChange('fertilizing')}
+                          />
                           <Label htmlFor="fertilizing">Fertilizing</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="pruning" />
+                          <Checkbox
+                            id="pruning"
+                            checked={tempFilters.services.pruning}
+                            onCheckedChange={() => handleServiceChange('pruning')}
+                          />
                           <Label htmlFor="pruning">Pruning</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="repotting" />
+                          <Checkbox
+                            id="repotting"
+                            checked={tempFilters.services.repotting}
+                            onCheckedChange={() => handleServiceChange('repotting')}
+                          />
                           <Label htmlFor="repotting">Repotting</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="pest-control" />
+                          <Checkbox
+                            id="pest-control"
+                            checked={tempFilters.services.pestControl}
+                            onCheckedChange={() => handleServiceChange('pestControl')}
+                          />
                           <Label htmlFor="pest-control">Pest Control</Label>
                         </div>
                       </div>
@@ -176,15 +483,27 @@ export default function PlantsittingPage() {
                       <h3 className="text-sm font-medium font-heading">Experience Level</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="beginner-sitter" />
+                          <Checkbox
+                            id="beginner-sitter"
+                            checked={tempFilters.experienceLevel.beginner}
+                            onCheckedChange={() => handleExperienceChange('beginner')}
+                          />
                           <Label htmlFor="beginner-sitter">Beginner (0-1 years)</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="intermediate-sitter" />
+                          <Checkbox
+                            id="intermediate-sitter"
+                            checked={tempFilters.experienceLevel.intermediate}
+                            onCheckedChange={() => handleExperienceChange('intermediate')}
+                          />
                           <Label htmlFor="intermediate-sitter">Intermediate (1-3 years)</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="expert-sitter" />
+                          <Checkbox
+                            id="expert-sitter"
+                            checked={tempFilters.experienceLevel.expert}
+                            onCheckedChange={() => handleExperienceChange('expert')}
+                          />
                           <Label htmlFor="expert-sitter">Expert (3+ years)</Label>
                         </div>
                       </div>
@@ -193,23 +512,35 @@ export default function PlantsittingPage() {
                       <h3 className="text-sm font-medium font-heading">Availability</h3>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="weekdays" />
+                          <Checkbox
+                            id="weekdays"
+                            checked={tempFilters.availability.weekdays}
+                            onCheckedChange={() => handleAvailabilityChange('weekdays')}
+                          />
                           <Label htmlFor="weekdays">Weekdays</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="weekends" />
+                          <Checkbox
+                            id="weekends"
+                            checked={tempFilters.availability.weekends}
+                            onCheckedChange={() => handleAvailabilityChange('weekends')}
+                          />
                           <Label htmlFor="weekends">Weekends</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Checkbox id="holidays" />
+                          <Checkbox
+                            id="holidays"
+                            checked={tempFilters.availability.holidays}
+                            onCheckedChange={() => handleAvailabilityChange('holidays')}
+                          />
                           <Label htmlFor="holidays">Holidays</Label>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <Button variant="outline">Reset</Button>
-                    <Button className="bg-green-600 hover:bg-green-700">Apply Filters</Button>
+                    <Button variant="outline" onClick={resetFilters}>Reset</Button>
+                    <Button className="bg-green-600 hover:bg-green-700" onClick={applyFilters}>Apply Filters</Button>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -219,9 +550,12 @@ export default function PlantsittingPage() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Showing 15 results</span>
+              <span className="text-sm text-muted-foreground">
+                Showing {filteredSitter.length} results
+                {filtersApplied && " with filters"}
+              </span>
             </div>
-            <Select defaultValue="distance">
+            <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
@@ -236,99 +570,8 @@ export default function PlantsittingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Sarah Johnson",
-                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop",
-                rating: 4.9,
-                reviews: 24,
-                distance: 2.5,
-                description: "Plant enthusiast with 5+ years of experience caring for all types of indoor plants.",
-                price: 15,
-                badges: ["Watering", "Pruning", "Fertilizing"],
-              },
-              {
-                name: "Michael Chen",
-                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop",
-                rating: 4.8,
-                reviews: 18,
-                distance: 3.2,
-                description: "Certified botanist specializing in tropical plants and succulents.",
-                price: 18,
-                badges: ["Watering", "Repotting", "Pest Control"],
-              },
-              {
-                name: "Emma Rodriguez",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
-                rating: 4.7,
-                reviews: 31,
-                distance: 1.8,
-                description: "Passionate plant lover with expertise in rare and exotic species.",
-                price: 16,
-                badges: ["Watering", "Pruning", "Plant Health"],
-              },
-              {
-                name: "David Kim",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-                rating: 4.6,
-                reviews: 15,
-                distance: 4.1,
-                description: "Horticulture student with a focus on indoor plant ecosystems.",
-                price: 14,
-                badges: ["Watering", "Fertilizing", "Light Management"],
-              },
-              {
-                name: "Olivia Martinez",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
-                rating: 4.9,
-                reviews: 27,
-                distance: 2.3,
-                description: "Former greenhouse manager with extensive knowledge of plant care.",
-                price: 20,
-                badges: ["Full Service", "Repotting", "Pest Control"],
-              },
-              {
-                name: "James Wilson",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-                rating: 4.7,
-                reviews: 22,
-                distance: 3.7,
-                description: "Plant enthusiast specializing in air purifying plants and ferns.",
-                price: 17,
-                badges: ["Watering", "Humidity Control", "Propagation"],
-              },
-              {
-                name: "Sophia Lee",
-                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
-                rating: 4.8,
-                reviews: 19,
-                distance: 1.5,
-                description: "Experienced with rare tropical plants and creating optimal growing conditions.",
-                price: 19,
-                badges: ["Specialized Care", "Propagation", "Seasonal Care"],
-              },
-              {
-                name: "Ethan Brown",
-                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
-                rating: 4.6,
-                reviews: 14,
-                distance: 5.2,
-                description: "Plant collector focusing on cacti and succulents with desert-like conditions.",
-                price: 16,
-                badges: ["Drought Plants", "Soil Management", "Watering"],
-              },
-              {
-                name: "Ava Thompson",
-                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
-                rating: 4.9,
-                reviews: 33,
-                distance: 2.8,
-                description: "Botanical garden volunteer with expertise in a wide variety of plant species.",
-                price: 18,
-                badges: ["Full Service", "Plant Rotation", "Light Management"],
-              },
-            ].map((sitter, i) => (
-              <div key={i} className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
+            {sortedSitter.map((sitter) => (
+              <div key={sitter.id} className="rounded-lg border bg-white p-6 transition-all hover:shadow-md">
                 <div className="flex items-start gap-4">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
                     <Image
@@ -348,7 +591,7 @@ export default function PlantsittingPage() {
                     </div>
                     <div className="mt-1 flex items-center text-sm text-muted-foreground">
                       <MapPin className="mr-1 h-4 w-4" />
-                      <span>{sitter.distance} miles away</span>
+                      <span>{sitter.distance} kilometers away</span>
                     </div>
                   </div>
                 </div>
@@ -361,8 +604,8 @@ export default function PlantsittingPage() {
                 </div>
                 <p className="mt-4 text-sm text-muted-foreground">{sitter.description}</p>
                 <div className="mt-4 flex justify-between items-center">
-                  <span className="font-medium text-green-600">${sitter.price}/day</span>
-                  <Link href={`/sitter/${i + 1}`}>
+                  <span className="font-medium text-green-600">€{sitter.price}/day</span>
+                  <Link href={`/sitter/${sitter.id}`}>
                     <Button size="sm" className="bg-green-600 hover:bg-green-700">
                       View Profile
                     </Button>

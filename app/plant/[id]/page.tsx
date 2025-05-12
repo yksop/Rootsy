@@ -223,11 +223,14 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
 
             <div>
               <div className="mb-4">
-                <Badge className="mb-2 bg-green-100 text-green-800 hover:bg-green-100">Best Seller</Badge>
+                <Badge className="mb-2 bg-green-100 text-green-800 hover:bg-green-100">Top vendor</Badge>
                 <h1 className="text-3xl font-heading">
                   {plantData.name} <span className="text-lg text-muted-foreground">(Usata)</span>
                 </h1>
-                <div className="mt-2 flex items-center">
+                <p className="text-sm text-muted-foreground">
+                  Pianta usata - Disponibile per il ritiro o la spedizione
+                </p>
+                {/* <div className="mt-2 flex items-center">
                   <div className="flex items-center">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -236,18 +239,15 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <span className="ml-2 text-sm text-muted-foreground">
                     {plantData.rating} ({plantData.reviews} reviews)
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <div className="mb-6">
                 <div className="flex items-center gap-2">
-                  <div className="text-2xl font-heading text-green-600">€{(plantData.price * 0.7).toFixed(2)}</div>
-                  <div className="text-sm line-through text-muted-foreground">€{plantData.price}</div>
-                  <Badge className="ml-2 bg-red-100 text-red-800 hover:bg-red-100">-30%</Badge>
+                  <div className="text-2xl font-heading text-green-600">€{(plantData.price)}</div>
+                  {/* <div className="text-sm line-through text-muted-foreground">€{plantData.price}</div> */}
+                  {/* <Badge className="ml-2 bg-red-100 text-red-800 hover:bg-red-100">-30%</Badge> */}
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Pianta usata - Disponibile per il ritiro o la spedizione
-                </p>
               </div>
 
               <div className="mb-6 space-y-4">
@@ -265,7 +265,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                     <Truck className="h-4 w-4 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">Free shipping on orders over $50</p>
+                    <p className="text-sm font-medium">Free shipping on orders over €50</p>
                     <p className="text-xs text-muted-foreground">Delivered in eco-friendly packaging</p>
                   </div>
                 </div>
@@ -291,8 +291,8 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="flex items-start gap-4">
                   <div className="relative h-16 w-16 overflow-hidden rounded-full">
                     <Image
-                      src={sellerData.avatar || "/placeholder.svg"}
-                      alt={sellerData.name}
+                      src={sellerData[1]?.avatar || "/placeholder.svg"}
+                      alt={sellerData[1]?.name || "Venditore"}
                       width={64}
                       height={64}
                       className="object-cover"
@@ -300,18 +300,18 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-heading text-lg">{sellerData.name}</h3>
+                      <h3 className="font-heading text-lg">{sellerData[1]?.name || "Venditore"}</h3>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm">
-                          {sellerData.rating} ({sellerData.reviews} recensioni)
+                          {sellerData[1]?.rating} ({sellerData[1]?.reviews} recensioni)
                         </span>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {sellerData.location} • Membro da {sellerData.memberSince}
+                      {sellerData[1]?.location} • Membro da {sellerData[1]?.memberSince}
                     </p>
-                    <p className="mt-2 text-sm">{sellerData.description}</p>
+                    <p className="mt-2 text-sm">{sellerData[1]?.description}</p>
                     <Button variant="outline" size="sm" className="mt-2">
                       Contatta il venditore
                     </Button>
@@ -723,7 +723,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <div className="p-4">
                     <h3 className="font-heading">Monstera Deliciosa</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">$29.99</span>
+                      <span className="font-semibold text-green-600">€29.99</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">4.9</span>
@@ -736,7 +736,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="https://images.unsplash.com/photo-1572686972126-be2d79f4b5b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                      src="https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="Snake Plant"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -745,7 +745,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <div className="p-4">
                     <h3 className="font-heading">Snake Plant</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">$24.99</span>
+                      <span className="font-semibold text-green-600">€24.99</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">4.7</span>
@@ -758,7 +758,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="https://images.unsplash.com/photo-1613737693060-1a27e4e7c3de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                      src="https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D"
                       alt="Fiddle Leaf Fig"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -767,7 +767,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <div className="p-4">
                     <h3 className="font-heading">Fiddle Leaf Fig</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">$34.99</span>
+                      <span className="font-semibold text-green-600">€34.99</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">4.6</span>
@@ -780,7 +780,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                      src="https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww"
                       alt="Pothos"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -789,7 +789,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <div className="p-4">
                     <h3 className="font-heading">Pothos</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">$19.99</span>
+                      <span className="font-semibold text-green-600">€19.99</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">4.9</span>
@@ -802,7 +802,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                 <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                   <div className="relative aspect-square">
                     <Image
-                      src="https://images.unsplash.com/photo-1632321941433-416736b82c90?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                      src="https://plus.unsplash.com/premium_photo-1669870413077-93390b44baf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WlolMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D"
                       alt="ZZ Plant"
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -811,7 +811,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
                   <div className="p-4">
                     <h3 className="font-heading">ZZ Plant</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">$22.99</span>
+                      <span className="font-semibold text-green-600">€22.99</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">4.8</span>
