@@ -12,236 +12,236 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
     1: {
       id: "1",
       name: "Elena Bianchi",
-      location: "Milano, Italia",
+      location: "Milan, Italy",
       distance: "2.5 km",
       rating: 4.9,
       reviews: 124,
       hourlyRate: 15,
-      memberSince: "Gennaio 2023",
-      responseTime: "< 1 ora",
+      memberSince: "Jenuary 2023",
+      responseTime: "< 1 hour",
       completedJobs: 87,
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       coverImage:
         "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "Sono una biologa con una passione per le piante da interni. Ho più di 50 piante nella mia casa e offro servizi di plant sitting professionali da oltre 3 anni. Mi prendo cura delle tue piante come se fossero le mie!",
-      specialties: ["Piante tropicali", "Orchidee", "Piante rare", "Bonsai"],
+      bio: "I am a biologist with a passion for houseplants. I have over 50 plants in my home and have been offering professional plant sitting services for over 3 years. I take care of your plants as if they were my own!",
+      specialties: ["Tropical Plants", "Orchids", "Rare Plants", "Bonsai"],
       services: [
         {
-          name: "Visita giornaliera",
+          name: "Daily visits",
           price: 15,
-          description: "Visita giornaliera per annaffiare, controllare e prendersi cura delle tue piante.",
+          description: "Daily visit to water, check and care for your plants.",
         },
         {
-          name: "Pacchetto settimanale",
+          name: "Weekly package",
           price: 90,
-          description: "Visite giornaliere per una settimana, include annaffiatura, fertilizzazione e cura generale.",
+          description: "Daily visits for a week, includes watering, fertilizing and general care.",
         },
         {
-          name: "Consulenza piante",
+          name: "Plant Consultation",
           price: 40,
           description:
-            "Consulenza di un'ora per valutare la salute delle tue piante e fornire consigli personalizzati.",
+            "One hour consultation to assess the health of your plants and provide personalized advice.",
         },
         {
-          name: "Trapianto e potatura",
+          name: "Transplanting and Pruning",
           price: 25,
-          description: "Servizio di trapianto e potatura per le tue piante, include terriccio di qualità.",
+          description: "Transplanting and pruning service for your plants, includes quality soil.",
         },
       ],
       availability: [
-        { day: "Lunedì", hours: "9:00 - 18:00" },
-        { day: "Martedì", hours: "9:00 - 18:00" },
-        { day: "Mercoledì", hours: "9:00 - 18:00" },
-        { day: "Giovedì", hours: "9:00 - 18:00" },
-        { day: "Venerdì", hours: "9:00 - 18:00" },
-        { day: "Sabato", hours: "10:00 - 15:00" },
-        { day: "Domenica", hours: "Chiuso" },
+        { day: "Monday", hours: "9:00 - 18:00" },
+        { day: "Tuesday", hours: "9:00 - 18:00" },
+        { day: "Wednesday", hours: "9:00 - 18:00" },
+        { day: "Thursday", hours: "9:00 - 18:00" },
+        { day: "Friday", hours: "9:00 - 18:00" },
+        { day: "Saturday", hours: "10:00 - 15:00" },
+        { day: "Sunday", hours: "Closed" },
       ],
       education: [
-        { title: "Laurea in Scienze Biologiche", institution: "Università di Milano", year: "2018" },
-        { title: "Corso di Botanica Avanzata", institution: "Orto Botanico di Brera", year: "2020" },
+        { title: "Bachelor of Science in Biology", institution: "Università di Milano", year: "2018" },
+        { title: "Advanced Botany Course", institution: "Orto Botanico di Brera", year: "2020" },
         {
-          title: "Certificazione in Cura delle Piante Tropicali",
+          title: "Certification in Tropical Plant Care",
           institution: "Associazione Botanica Italiana",
           year: "2021",
         },
       ],
-      languages: ["Italiano", "Inglese", "Spagnolo"],
+      languages: ["Italian", "English", "Spanish"],
     },
     2: {
       id: "2",
       name: "Marco Rossi",
-      location: "Roma, Italia",
+      location: "Roma, Italy",
       distance: "3.8 km",
       rating: 4.7,
       reviews: 98,
       hourlyRate: 18,
-      memberSince: "Marzo 2022",
-      responseTime: "< 2 ore",
+      memberSince: "March 2022",
+      responseTime: "< 2 hours",
       completedJobs: 112,
       avatar:
         "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       coverImage:
         "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "Giardiniere professionista con esperienza decennale nella cura di piante da interni ed esterni. Specializzato in piante mediterranee e succulente. Offro servizi di plant sitting e consulenza per la cura ottimale delle tue piante.",
-      specialties: ["Succulente", "Piante mediterranee", "Piante da esterno", "Erbe aromatiche"],
+      bio: "Professional gardener with decades of experience in the care of indoor and outdoor plants. Specialized in Mediterranean plants and succulents. I offer plant sitting services and advice for the optimal care of your plants.",
+      specialties: ["Succulents", "Mediterranean plants", "Outdoor plants", "Aromatic herbs"],
       services: [
         {
-          name: "Visita giornaliera",
+          name: "Daily visit",
           price: 18,
-          description: "Visita giornaliera per annaffiare, controllare e prendersi cura delle tue piante.",
+          description: "Daily visit to water, check and take care of your plants.",
         },
         {
-          name: "Pacchetto settimanale",
+          name: "Weekly package",
           price: 110,
-          description: "Visite giornaliere per una settimana, include annaffiatura, fertilizzazione e cura generale.",
+          description: "Daily visits for a week, includes watering, fertilizing and general care.",
         },
         {
-          name: "Consulenza giardino",
+          name: "Garden consultation",
           price: 50,
           description:
-            "Consulenza di un'ora per valutare la salute delle tue piante e fornire consigli personalizzati.",
+            "One-hour consultation to assess the health of your plants and provide personalized advice.",
         },
         {
-          name: "Trattamento antiparassitario",
+          name: "Treatment antiparasitico",
           price: 35,
-          description: "Trattamento completo contro parassiti e malattie delle piante con prodotti naturali.",
+          description: "Complete treatment against parasites and plant diseases with natural products.",
         },
       ],
       availability: [
-        { day: "Lunedì", hours: "8:00 - 17:00" },
-        { day: "Martedì", hours: "8:00 - 17:00" },
-        { day: "Mercoledì", hours: "8:00 - 17:00" },
-        { day: "Giovedì", hours: "8:00 - 17:00" },
-        { day: "Venerdì", hours: "8:00 - 17:00" },
-        { day: "Sabato", hours: "9:00 - 14:00" },
-        { day: "Domenica", hours: "Chiuso" },
+        { day: "Monday", hours: "8:00 - 17:00" },
+        { day: "Tuesday", hours: "8:00 - 17:00" },
+        { day: "Wednesday", hours: "8:00 - 17:00" },
+        { day: "Thursday", hours: "8:00 - 17:00" },
+        { day: "Friday", hours: "8:00 - 17:00" },
+        { day: "Saturday", hours: "9:00 - 14:00" },
+        { day: "Sunday", hours: "Closed" },
       ],
       education: [
         { title: "Diploma in Agraria", institution: "Istituto Tecnico Agrario di Roma", year: "2010" },
-        { title: "Corso di Giardinaggio Professionale", institution: "Scuola di Giardinaggio di Roma", year: "2012" },
+        { title: "Professional Gardening Course", institution: "Scuola di Giardinaggio di Roma", year: "2012" },
         { title: "Certificazione in Permacultura", institution: "Accademia Italiana di Permacultura", year: "2015" },
       ],
-      languages: ["Italiano", "Inglese"],
+      languages: ["Italian", "English"],
     },
     3: {
       id: "3",
       name: "Sofia Verdi",
-      location: "Firenze, Italia",
+      location: "Firenze, Italy",
       distance: "1.2 km",
       rating: 5.0,
       reviews: 76,
       hourlyRate: 20,
-      memberSince: "Giugno 2021",
-      responseTime: "< 30 minuti",
+      memberSince: "June 2021",
+      responseTime: "< 30 minutes",
       completedJobs: 94,
       avatar:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
       coverImage:
         "https://images.unsplash.com/photo-1591958911259-bee2173bdccc?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "Appassionata di botanica e floricultura. Ho studiato Scienze Naturali e mi sono specializzata nella cura di piante rare e tropicali. Offro servizi di plant sitting di alta qualità con attenzione ai dettagli e alle esigenze specifiche di ogni pianta.",
-      specialties: ["Piante rare", "Felci", "Piante carnivore", "Orchidee"],
+      bio: "Passionate about botany and floriculture. I studied Natural Sciences and specialized in the care of rare and tropical plants. I offer high quality plant sitting services with attention to detail and the specific needs of each plant.",
+      specialties: ["Rare plants", "Ferns", "Carnivorous plants", "Orchids"],
       services: [
         {
-          name: "Visita giornaliera",
+          name: "Daily visit",
           price: 20,
-          description: "Visita giornaliera per annaffiare, controllare e prendersi cura delle tue piante.",
+          description: "Daily visit to water, check and take care of your plants.",
         },
         {
-          name: "Pacchetto settimanale",
+          name: "Weekly package",
           price: 120,
-          description: "Visite giornaliere per una settimana, include annaffiatura, fertilizzazione e cura generale.",
+          description: "Daily visits for a week, includes watering, fertilization and general care.",
         },
         {
-          name: "Consulenza piante rare",
+          name: "Rare plant consultancy",
           price: 60,
-          description: "Consulenza specializzata per la cura di piante rare e delicate.",
+          description: "Specialized consultancy for the care of rare and delicate plants.",
         },
         {
-          name: "Riproduzione e propagazione",
+          name: "Reproduction and propagation",
           price: 40,
-          description: "Servizio di propagazione per moltiplicare le tue piante preferite.",
+          description: "Propagation service to multiply your favorite plants.",
         },
       ],
       availability: [
-        { day: "Lunedì", hours: "10:00 - 19:00" },
-        { day: "Martedì", hours: "10:00 - 19:00" },
-        { day: "Mercoledì", hours: "10:00 - 19:00" },
-        { day: "Giovedì", hours: "10:00 - 19:00" },
-        { day: "Venerdì", hours: "10:00 - 19:00" },
-        { day: "Sabato", hours: "10:00 - 16:00" },
-        { day: "Domenica", hours: "10:00 - 14:00" },
+        { day: "Monday", hours: "10:00 - 19:00" },
+        { day: "Tuesday", hours: "10:00 - 19:00" },
+        { day: "Wednesday", hours: "10:00 - 19:00" },
+        { day: "Thursday", hours: "10:00 - 19:00" },
+        { day: "Friday", hours: "10:00 - 19:00" },
+        { day: "Saturday", hours: "10:00 - 16:00" },
+        { day: "Sunday", hours: "10:00 - 14:00" },
       ],
       education: [
-        { title: "Laurea in Scienze Naturali", institution: "Università di Firenze", year: "2017" },
-        { title: "Master in Botanica Tropicale", institution: "Università di Padova", year: "2019" },
+        { title: "Degree in Natural Sciences", institution: "University of Florence", year: "2017" },
+        { title: "Master in Tropical Botany", institution: "University of Padua", year: "2019" },
         {
-          title: "Corso di Specializzazione in Piante Rare",
-          institution: "Giardino Botanico di Firenze",
+          title: "Specialization Course in Rare Plants",
+          institution: "Botanical Garden of Florence",
           year: "2020",
         },
       ],
-      languages: ["Italiano", "Inglese", "Francese"],
+      languages: ["Italian", "English", "French"],
     },
   }[params.id as unknown as number] || {
     id: "1",
     name: "Elena Bianchi",
-    location: "Milano, Italia",
+    location: "Milano, Italy",
     distance: "2.5 km",
     rating: 4.9,
     reviews: 124,
     hourlyRate: 15,
-    memberSince: "Gennaio 2023",
-    responseTime: "< 1 ora",
+    memberSince: "Jenuary 2023",
+    responseTime: "< 1 hour",
     completedJobs: 87,
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
     coverImage:
       "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-    bio: "Sono una biologa con una passione per le piante da interni. Ho più di 50 piante nella mia casa e offro servizi di plant sitting professionali da oltre 3 anni. Mi prendo cura delle tue piante come se fossero le mie!",
-    specialties: ["Piante tropicali", "Orchidee", "Piante rare", "Bonsai"],
+    bio: "I am a biologist with a passion for indoor plants. I have over 50 plants in my home and have been offering professional plant sitting services for over 3 years. I take care of your plants as if they were my own!",
+    specialties: ["Tropical Plants", "Orchids", "Rare Plants", "Bonsai"],
     services: [
       {
-        name: "Visita giornaliera",
+        name: "Daily Visit",
         price: 15,
-        description: "Visita giornaliera per annaffiare, controllare e prendersi cura delle tue piante.",
+        description: "Daily visit to water, check and care for your plants.",
       },
       {
-        name: "Pacchetto settimanale",
+        name: "Weekly Package",
         price: 90,
-        description: "Visite giornaliere per una settimana, include annaffiatura, fertilizzazione e cura generale.",
+        description: "Daily visits for a week, includes watering, fertilizing and general care.",
       },
       {
-        name: "Consulenza piante",
+        name: "Plant Consultation",
         price: 40,
-        description: "Consulenza di un'ora per valutare la salute delle tue piante e fornire consigli personalizzati.",
+        description: "One hour consultation to assess the health of your plants and provide personalized advice.",
       },
       {
-        name: "Trapianto e potatura",
+        name: "Transplanting and Pruning",
         price: 25,
-        description: "Servizio di trapianto e potatura per le tue piante, include terriccio di qualità.",
+        description: "Transplanting and pruning service for your plants, includes quality soil.",
       },
     ],
     availability: [
-      { day: "Lunedì", hours: "9:00 - 18:00" },
-      { day: "Martedì", hours: "9:00 - 18:00" },
-      { day: "Mercoledì", hours: "9:00 - 18:00" },
-      { day: "Giovedì", hours: "9:00 - 18:00" },
-      { day: "Venerdì", hours: "9:00 - 18:00" },
-      { day: "Sabato", hours: "10:00 - 15:00" },
-      { day: "Domenica", hours: "Chiuso" },
+      { day: "Monday", hours: "9:00 - 18:00" },
+      { day: "Tuesday", hours: "9:00 - 18:00" },
+      { day: "Wednesday", hours: "9:00 - 18:00" },
+      { day: "Thursday", hours: "9:00 - 18:00" },
+      { day: "Friday", hours: "9:00 - 18:00" },
+      { day: "Saturday", hours: "10:00 - 15:00" },
+      { day: "Sunday", hours: "Closed" },
     ],
     education: [
-      { title: "Laurea in Scienze Biologiche", institution: "Università di Milano", year: "2018" },
-      { title: "Corso di Botanica Avanzata", institution: "Orto Botanico di Brera", year: "2020" },
+      { title: "Graduation in Biological Sciences", institution: "Università di Milano", year: "2018" },
+      { title: "Advanced Botany Course", institution: "Orto Botanico di Brera", year: "2020" },
       {
-        title: "Certificazione in Cura delle Piante Tropicali",
+        title: "Certification in Tropical Plant Care",
         institution: "Associazione Botanica Italiana",
         year: "2021",
       },
     ],
-    languages: ["Italiano", "Inglese", "Spagnolo"],
+    languages: ["Italian", "English", "Spanish"],
   }
 
   return (
@@ -355,32 +355,32 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                       ))}
                     </div>
                     <span className="ml-2 text-sm">
-                      {sitterData.rating} ({sitterData.reviews} recensioni)
+                      {sitterData.rating} ({sitterData.reviews} reviews)
                     </span>
                   </div>
                 </div>
 
                 <div className="p-4 border rounded-lg space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Tariffa oraria</span>
-                    <span className="font-semibold text-green-600">€{sitterData.hourlyRate}/ora</span>
+                    <span className="text-sm text-muted-foreground">Hourly rate</span>
+                    <span className="font-semibold text-green-600">€{sitterData.hourlyRate}/hour</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Tempo di risposta</span>
+                    <span className="text-sm text-muted-foreground">Response time</span>
                     <span>{sitterData.responseTime}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Lavori completati</span>
+                    <span className="text-sm text-muted-foreground">Completed jobs</span>
                     <span>{sitterData.completedJobs}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Membro da</span>
+                    <span className="text-sm text-muted-foreground">Member since</span>
                     <span>{sitterData.memberSince}</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="font-heading mb-2">Specializzazioni</h3>
+                  <h3 className="font-heading mb-2">Specialties</h3>
                   <div className="flex flex-wrap gap-2">
                     {sitterData.specialties.map((specialty) => (
                       <Badge key={specialty} variant="outline" className="bg-green-50">
@@ -391,7 +391,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                 </div>
 
                 <div>
-                  <h3 className="font-heading mb-2">Lingue parlate</h3>
+                  <h3 className="font-heading mb-2">Languages</h3>
                   <div className="flex flex-wrap gap-2">
                     {sitterData.languages.map((language) => (
                       <Badge key={language} variant="outline">
@@ -402,7 +402,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                 </div>
 
                 <div>
-                  <h3 className="font-heading mb-2">Disponibilità</h3>
+                  <h3 className="font-heading mb-2">Availability</h3>
                   <div className="space-y-2 text-sm">
                     {sitterData.availability.map((slot) => (
                       <div key={slot.day} className="flex justify-between">
@@ -415,7 +415,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
 
                 <Button className="w-full bg-green-600 hover:bg-green-700">
                   <MessageSquare className="mr-2 h-4 w-4" />
-                  Contatta
+                  Contact
                 </Button>
               </div>
             </div>
@@ -425,24 +425,24 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
               <Tabs defaultValue="about" className="w-full">
                 <TabsList className="w-full grid grid-cols-3 mb-8">
                   <TabsTrigger value="about" className="font-heading">
-                    Chi sono
+                    Who I Am
                   </TabsTrigger>
                   <TabsTrigger value="services" className="font-heading">
-                    Servizi
+                    Services
                   </TabsTrigger>
                   <TabsTrigger value="reviews" className="font-heading">
-                    Recensioni
+                    Reviews
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="about" className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-heading mb-4">Chi sono</h2>
+                    <h2 className="text-2xl font-heading mb-4">Who I am</h2>
                     <p className="text-muted-foreground">{sitterData.bio}</p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-heading mb-3">Formazione</h3>
+                    <h3 className="text-xl font-heading mb-3">Education</h3>
                     <div className="space-y-4">
                       {sitterData.education.map((edu, index) => (
                         <div key={index} className="flex gap-4">
@@ -475,54 +475,52 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-heading mb-3">Perché scegliermi</h3>
+                    <h3 className="text-xl font-heading mb-3">Why choosing me</h3>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <div className="mr-2 mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-3 w-3 text-green-600" />
                         </div>
-                        <span>Esperienza pluriennale nella cura delle piante</span>
+                        <span>Many years of experience in plant care</span>
                       </li>
                       <li className="flex items-start">
                         <div className="mr-2 mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-3 w-3 text-green-600" />
                         </div>
-                        <span>Conoscenza approfondita di diverse specie di piante</span>
+                        <span>In-depth knowledge of different plant species</span>
                       </li>
                       <li className="flex items-start">
                         <div className="mr-2 mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-3 w-3 text-green-600" />
                         </div>
-                        <span>Servizio personalizzato in base alle esigenze delle tue piante</span>
+                        <span>Personalized service based on your plants' needs</span>
                       </li>
                       <li className="flex items-start">
                         <div className="mr-2 mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-3 w-3 text-green-600" />
                         </div>
-                        <span>Aggiornamenti regolari con foto delle tue piante</span>
+                        <span>Regular updates with photos of your plants</span>
                       </li>
                       <li className="flex items-start">
                         <div className="mr-2 mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-3 w-3 text-green-600" />
                         </div>
-                        <span>Disponibilità flessibile e servizio affidabile</span>
+                        <span>Flexible availability and reliable service</span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="rounded-lg border p-4">
-                      <h3 className="font-heading mb-2">Zona di servizio</h3>
+                      <h3 className="font-heading mb-2">Service Area</h3>
                       <p className="text-sm text-muted-foreground">
-                        Offro servizi di plant sitting in un raggio di 10 km da {sitterData.location}. Per distanze
-                        maggiori, potrebbe essere applicato un supplemento.
+                        I offer plant sitting services within a 10km radius of {sitterData.location}. For longer distances, a supplement may apply.
                       </p>
                     </div>
                     <div className="rounded-lg border p-4">
-                      <h3 className="font-heading mb-2">Politica di cancellazione</h3>
+                      <h3 className="font-heading mb-2">Cancellation Policy</h3>
                       <p className="text-sm text-muted-foreground">
-                        Cancellazione gratuita fino a 48 ore prima del servizio. Dopo questo termine, verrà addebitato
-                        il 50% del costo totale.
+                        Free cancellation up to 48 hours before the service. After this time, 50% of the total cost will be charged.
                       </p>
                     </div>
                   </div>
@@ -530,11 +528,10 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
 
                 <TabsContent value="services" className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-heading mb-4">Servizi offerti</h2>
+                    <h2 className="text-2xl font-heading mb-4">Services Offered</h2>
                     <p className="text-muted-foreground mb-6">
-                      Offro una varietà di servizi per prendermi cura delle tue piante mentre sei via o per aiutarti a
-                      mantenerle in salute. Tutti i servizi possono essere personalizzati in base alle tue esigenze
-                      specifiche.
+                      I offer a variety of services to care for your plants while you are away or to help you
+                      keep them healthy. All services can be customized to your specific needs.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -546,7 +543,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                           </div>
                           <p className="text-sm text-muted-foreground flex-grow">{service.description}</p>
                           <Button variant="outline" className="mt-4 w-full">
-                            Prenota
+                            Book
                           </Button>
                         </div>
                       ))}
@@ -554,19 +551,19 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-heading mb-3">Servizi personalizzati</h3>
+                    <h3 className="text-xl font-heading mb-3">Customized services</h3>
                     <p className="text-muted-foreground mb-4">
-                      Hai esigenze particolari o piante che richiedono cure speciali? Contattami per discutere di un
-                      servizio personalizzato adatto alle tue necessità.
+                      Do you have special needs or plants that require special care? Contact me to discuss a
+                      customized service suited to your needs.
                     </p>
                     <div className="flex gap-4">
                       <Button className="bg-green-600 hover:bg-green-700">
                         <MessageSquare className="mr-2 h-4 w-4" />
-                        Richiedi preventivo
+                        Request a quote
                       </Button>
                       <Button variant="outline">
                         <Calendar className="mr-2 h-4 w-4" />
-                        Verifica disponibilità
+                        Check availability
                       </Button>
                     </div>
                   </div>
@@ -577,10 +574,10 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                         <Clock className="h-5 w-5 text-green-600" />
                       </div>
                       <div>
-                        <h3 className="font-heading mb-1">Prenotazione rapida</h3>
+                        <h3 className="font-heading mb-1">Quick Booking</h3>
                         <p className="text-sm text-muted-foreground">
-                          Hai bisogno di un plant sitter con urgenza? Rispondo alle richieste entro{" "}
-                          {sitterData.responseTime} e posso spesso organizzare un servizio anche con breve preavviso.
+                          Need a plant sitter urgently? I respond to requests within {" "}
+                          {sitterData.responseTime} and can often arrange a service at short notice.
                         </p>
                       </div>
                     </div>
@@ -589,7 +586,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
 
                 <TabsContent value="reviews" className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-2xl font-heading">Recensioni dei clienti</h2>
+                    <h2 className="text-2xl font-heading">Clients review</h2>
                   </div>
 
                   <div className="flex items-center gap-4 p-4 border rounded-lg">
@@ -601,7 +598,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                         ))}
                       </div>
                       <div className="mt-1 text-sm text-muted-foreground">
-                        Basato su {sitterData.reviews} recensioni
+                        Based on {sitterData.reviews} reviews
                       </div>
                     </div>
                     <div className="flex-1 space-y-1">
@@ -646,24 +643,24 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                     {[
                       {
                         name: "Laura Neri",
-                        date: "2 settimane fa",
+                        date: "2 weeks ago",
                         rating: 5,
                         comment:
-                          "Ho lasciato le mie 15 piante a Elena durante una vacanza di due settimane e sono tornata trovandole tutte in perfetta salute! Mi ha inviato foto e aggiornamenti ogni giorno. Assolutamente consigliata!",
+                          "I left my 15 plants with Elena during a two week vacation and came back to find them all in perfect health! She sent me photos and updates every day. Highly recommended!",
                       },
                       {
                         name: "Giovanni Bianchi",
-                        date: "1 mese fa",
+                        date: "1 month ago",
                         rating: 5,
                         comment:
-                          "Elena ha salvato il mio bonsai che stava morendo! Non solo si è presa cura delle mie piante mentre ero via, ma mi ha anche dato consigli preziosi su come curarle meglio. Professionale e competente.",
+                          "Elena saved my dying bonsai! Not only did she take care of my plants while I was away, but she also gave me valuable advice on how to care for them better. Professional and knowledgeable.",
                       },
                       {
                         name: "Martina Rossi",
-                        date: "2 mesi fa",
+                        date: "2 months ago",
                         rating: 4,
                         comment:
-                          "Ottimo servizio, Elena è puntuale e affidabile. Le mie piante erano in buone condizioni al mio ritorno. L'unico motivo per cui non do 5 stelle è che avrei preferito ricevere più aggiornamenti durante la sua visita.",
+                          "Great service, Elena is punctual and reliable. My plants were in good condition when I returned. The only reason I don't give 5 stars is that I would have liked to receive more updates during her visit.",
                       },
                     ].map((review, index) => (
                       <div key={index} className="border-b pb-6">
@@ -688,7 +685,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                   </div>
 
                   <div className="flex justify-center">
-                    <Button variant="outline">Mostra altre recensioni</Button>
+                    <Button variant="outline">Show more reviews</Button>
                   </div>
                 </TabsContent>
               </Tabs>
@@ -696,7 +693,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
           </div>
 
           <div className="mt-12">
-            <h2 className="text-2xl font-heading mb-6">Altri plant sitter nella tua zona</h2>
+            <h2 className="text-2xl font-heading mb-6">Other plantsitter in your area</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
@@ -720,7 +717,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                 {
                   id: "3",
                   name: "Sofia Verdi",
-                  location: "Firenze, Italia",
+                  location: "Firenze, Italy",
                   rating: 5.0,
                   reviews: 76,
                   hourlyRate: 20,
@@ -728,7 +725,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
                   coverImage:
                     "https://images.unsplash.com/photo-1591958911259-bee2173bdccc?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-                  specialties: ["Piante rare", "Felci"],
+                  specialties: ["Rare plants", "Ferns"],
                 },
               ]
                 .filter((sitter) => sitter.id !== params.id)
@@ -771,7 +768,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                             <MapPin className="h-4 w-4 mr-1" />
                             {sitter.location}
                           </div>
-                          <span className="font-semibold text-green-600">€{sitter.hourlyRate}/ora</span>
+                          <span className="font-semibold text-green-600">€{sitter.hourlyRate}/hour</span>
                         </div>
                         <div className="flex flex-wrap gap-2 mt-3">
                           {sitter.specialties.map((specialty) => (

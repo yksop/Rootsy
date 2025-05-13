@@ -601,7 +601,7 @@ export default function MarketplacePage() {
                   <div className="p-4">
                     <h3 className="font-heading">{plant.name}</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="font-semibold text-green-600">${plant.price.toFixed(2)}</span>
+                      <span className="font-semibold text-green-600">€{plant.price.toFixed(2)}</span>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="ml-1 text-sm text-muted-foreground">{plant.rating}</span>
