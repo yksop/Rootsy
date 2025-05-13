@@ -11,14 +11,18 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Image
-            src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
-            alt="Rootsy Logo"
-            width={100}
-            height={100}
-            className="h-12 w-auto object-contain"
-          />
-          <nav className="hidden md:flex gap-6">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
+          </div>
+          <nav className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
               Marketplace
             </Link>
@@ -76,23 +80,30 @@ export default function Home() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/10 z-10"></div>
+          <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Aumentato l'opacità dello sfondo scuro */}
           <div className="container absolute inset-0 z-20 flex flex-col items-center justify-center text-center">
-            <div className="max-w-3xl p-6 rounded-lg bg-black/20 ">
-              <h1 className="text-4xl font-heading tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-                Rootsy
-              </h1>
-              <p className="mt-6 max-w-md mx-auto text-lg text-white drop-shadow-md">
+            <div className="max-w-3xl p-8 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 relative"> {/* Più contrasto e blur per lo sfondo */}
+              <div className="flex items-center justify-center mb-6">
+                <Image
+                  src="/images/logo-white.png"
+                  alt="Rootsy Logo"
+                  width={200}
+                  height={200}
+                  className="h-40 w-auto object-contain"
+                />
+              </div>
+
+              <p className="mt-6 max-w-md mx-auto text-xl text-white drop-shadow-md font-medium">
                 Find plant sitters for your green friends or discover new plants to add to your collection.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/plantsitting">
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium w-full sm:w-auto">
                     Find a Plant Sitter
                   </Button>
                 </Link>
                 <Link href="/marketplace">
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg font-medium w-full sm:w-auto">
                     Shop Plants
                   </Button>
                 </Link>
@@ -171,7 +182,7 @@ export default function Home() {
                       <div className="p-4">
                         <h3 className="font-heading">Monstera Deliciosa</h3>
                         <div className="mt-1 flex items-center justify-between">
-                          <span className="font-semibold text-green-600">$29.99</span>
+                          <span className="font-semibold text-green-600">€29.99</span>
                           <div className="flex items-center">
                             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             <span className="ml-1 text-sm text-muted-foreground">4.8</span>
@@ -193,7 +204,7 @@ export default function Home() {
                       <div className="p-4">
                         <h3 className="font-heading">Snake Plant</h3>
                         <div className="mt-1 flex items-center justify-between">
-                          <span className="font-semibold text-green-600">$24.99</span>
+                          <span className="font-semibold text-green-600">€24.99</span>
                           <div className="flex items-center">
                             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             <span className="ml-1 text-sm text-muted-foreground">4.7</span>
@@ -215,7 +226,7 @@ export default function Home() {
                       <div className="p-4">
                         <h3 className="font-heading">Fiddle Leaf Fig</h3>
                         <div className="mt-1 flex items-center justify-between">
-                          <span className="font-semibold text-green-600">$34.99</span>
+                          <span className="font-semibold text-green-600">€34.99</span>
                           <div className="flex items-center">
                             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             <span className="ml-1 text-sm text-muted-foreground">4.6</span>
@@ -237,7 +248,7 @@ export default function Home() {
                       <div className="p-4">
                         <h3 className="font-heading">Pothos</h3>
                         <div className="mt-1 flex items-center justify-between">
-                          <span className="font-semibold text-green-600">$19.99</span>
+                          <span className="font-semibold text-green-600">€19.99</span>
                           <div className="flex items-center">
                             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             <span className="ml-1 text-sm text-muted-foreground">4.9</span>
@@ -279,7 +290,7 @@ export default function Home() {
                       Plant enthusiast with 5+ years of experience caring for all types of indoor plants.
                     </p>
                     <div className="mt-4 flex justify-between items-center">
-                      <span className="font-medium text-green-600">$15/day</span>
+                      <span className="font-medium text-green-600">€15/day</span>
                       <Link href="/sitter/1">
                         <Button size="sm">View Profile</Button>
                       </Link>
@@ -306,7 +317,7 @@ export default function Home() {
                       Certified botanist specializing in tropical plants and succulents.
                     </p>
                     <div className="mt-4 flex justify-between items-center">
-                      <span className="font-medium text-green-600">$18/day</span>
+                      <span className="font-medium text-green-600">€18/day</span>
                       <Link href="/sitter/2">
                         <Button size="sm">View Profile</Button>
                       </Link>
@@ -333,7 +344,7 @@ export default function Home() {
                       Passionate plant lover with expertise in rare and exotic species.
                     </p>
                     <div className="mt-4 flex justify-between items-center">
-                      <span className="font-medium text-green-600">$16/day</span>
+                      <span className="font-medium text-green-600">€16/day</span>
                       <Link href="/sitter/3">
                         <Button size="sm">View Profile</Button>
                       </Link>
