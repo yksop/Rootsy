@@ -359,7 +359,7 @@ export default async function PlantDetailPage({ params }: { params: { id: string
                     </p>
                     <p className="mt-2 text-sm">{sellerData[1]?.description}</p>
                     <Button variant="outline" size="sm" className="mt-2">
-                      Contatta il venditore
+                      Chat with the seller
                     </Button>
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default async function PlantDetailPage({ params }: { params: { id: string
               <div className="flex gap-4">
                 <Button className="flex-1 bg-green-600 hover:bg-green-700">
                   <ShoppingCart className="mr-2 h-4 w-4" />
-                  Acquista questa pianta usata
+                  Buy
                 </Button>
                 <Button variant="outline" size="icon">
                   <Heart className="h-4 w-4" />
