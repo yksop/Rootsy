@@ -144,11 +144,6 @@ export default function CartPage() {
                             <div className="font-bold text-lg">
                               {(item.price * item.quantity).toFixed(2)} €
                             </div>
-                            {item.price && (
-                              <div className="text-gray-500 line-through text-sm">
-                                {(item.price * item.quantity).toFixed(2)} €
-                              </div>
-                            )}
                           </div>
                         </div>
 
