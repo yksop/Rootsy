@@ -62,63 +62,120 @@ export default async function PlantDetailPage({ params }: { params: { id: string
   const plantData = {
     1: {
       name: "Monstera Deliciosa",
-      image:
-        "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
       price: 29.99,
       rating: 4.9,
       reviews: 128,
-      description:
-        "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
-      longDescription:
-        "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
+      description: "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
+      longDescription: "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
     },
     2: {
       name: "Snake Plant",
-      image:
-        "https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 24.99,
       rating: 4.7,
       reviews: 96,
-      description:
-        "The Snake Plant, or Sansevieria, is one of the most low-maintenance plants you can grow. With its striking upright leaves and ability to purify air, it's perfect for beginners.",
-      longDescription:
-        "Native to West Africa, the Snake Plant is known for its hardiness and ability to survive in a wide range of conditions. It's one of the few plants that convert CO2 to oxygen at night, making it an excellent bedroom plant.",
+      description: "The Snake Plant, or Sansevieria, is one of the most low-maintenance plants you can grow. With its striking upright leaves and ability to purify air, it's perfect for beginners.",
+      longDescription: "Native to West Africa, the Snake Plant is known for its hardiness and ability to survive in a wide range of conditions. It's one of the few plants that convert CO2 to oxygen at night, making it an excellent bedroom plant.",
     },
     3: {
       name: "Fiddle Leaf Fig",
-      image:
-        "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D",
+      image: "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D",
       price: 34.99,
       rating: 4.6,
       reviews: 112,
-      description:
-        "The Fiddle Leaf Fig is known for its large, violin-shaped leaves that create a dramatic statement in any space. It's a popular choice for modern interiors.",
-      longDescription:
-        "Native to western Africa, the Fiddle Leaf Fig grows in lowland tropical rainforests. In its natural habitat, it can reach heights of up to 40 feet. As a houseplant, it typically grows to 6-10 feet tall with proper care.",
+      description: "The Fiddle Leaf Fig is known for its large, violin-shaped leaves that create a dramatic statement in any space. It's a popular choice for modern interiors.",
+      longDescription: "Native to western Africa, the Fiddle Leaf Fig grows in lowland tropical rainforests. In its natural habitat, it can reach heights of up to 40 feet. As a houseplant, it typically grows to 6-10 feet tall with proper care.",
     },
     4: {
       name: "Pothos",
-      image:
-        "https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww",
+      image: "https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww",
       price: 19.99,
       rating: 4.9,
       reviews: 145,
-      description:
-        "Pothos is a versatile trailing plant with heart-shaped leaves that can brighten up any space. It's incredibly easy to care for and can thrive in a variety of conditions.",
-      longDescription:
-        "Native to the Solomon Islands, Pothos is a popular houseplant known for its air-purifying qualities and ability to grow in low light. Its trailing vines can grow up to 10 feet long indoors, making it perfect for hanging baskets or climbing up trellises.",
+      description: "Pothos is a versatile trailing plant with heart-shaped leaves that can brighten up any space. It's incredibly easy to care for and can thrive in a variety of conditions.",
+      longDescription: "Native to the Solomon Islands, Pothos is a popular houseplant known for its air-purifying qualities and ability to grow in low light. Its trailing vines can grow up to 10 feet long indoors, making it perfect for hanging baskets or climbing up trellises.",
     },
-  }[params.id as unknown as number] || {
+    5: {
+      name: "ZZ Plant",
+      image: "https://plus.unsplash.com/premium_photo-1669870413077-93390b44baf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WlolMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
+      price: 22.99,
+      rating: 4.8,
+      reviews: 89,
+      description: "The ZZ Plant is renowned for its ability to tolerate neglect and low light, making it perfect for beginners or busy plant parents.",
+      longDescription: "Native to Eastern Africa, the ZZ Plant (Zamioculcas zamiifolia) has become popular due to its attractive, glossy foliage and extreme durability. It stores water in its rhizomes, allowing it to survive extended periods without water.",
+    },
+    6: {
+      name: "Calathea",
+      image: "https://images.unsplash.com/photo-1637967886160-fd78dc3ce3f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+      price: 27.99,
+      rating: 4.5,
+      reviews: 72,
+      description: "Calathea plants are known for their stunning, patterned leaves and dramatic nighttime leaf movements, earning them the nickname 'prayer plant'.",
+      longDescription: "Native to the tropical Americas, Calathea plants are prized for their decorative leaves with intricate patterns and purple undersides. They're known for their nyctinastic movements - their leaves fold up at night and open during the day.",
+    },
+    7: {
+      name: "Aloe Vera",
+      image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8QWxvZSUyMHZlcmF8ZW58MHx8MHx8fDA%3D",
+      price: 18.99,
+      rating: 4.7,
+      reviews: 103,
+      description: "Aloe Vera is a popular succulent plant known for its medicinal properties and striking architectural form with thick, serrated leaves.",
+      longDescription: "Native to the Arabian Peninsula but grown worldwide, Aloe Vera is prized for the clear gel inside its leaves that has been used for centuries for skin conditions and minor burns. As a houseplant, it's valued for its distinctive appearance and low maintenance needs.",
+    },
+    8: {
+      name: "Peace Lily",
+      image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+      price: 25.99,
+      rating: 4.6,
+      reviews: 118,
+      description: "The Peace Lily is an elegant houseplant with glossy green leaves and distinctive white flowers, known for its air-purifying qualities and ability to thrive in low light.",
+      longDescription: "Native to tropical rainforests of the Americas, the Peace Lily is valued for its striking white 'flowers' (actually modified leaves called spathes) and its ability to remove common household toxins from the air. It's one of the most popular houseplants due to its beauty and relatively easy care.",
+    },
+    9: {
+      name: "Rubber Plant",
+      image: "https://images.unsplash.com/photo-1669392597221-bbfd4b6e13ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+      price: 32.99,
+      rating: 4.7,
+      reviews: 85,
+      description: "The Rubber Plant features large, glossy leaves with a rich burgundy to dark green color, making it a striking addition to any space.",
+      longDescription: "Native to Southeast Asia, the Rubber Plant (Ficus elastica) gets its name from its milky sap once used to produce rubber. As a houseplant, it's prized for its large, dramatic foliage and architectural form that can grow into an impressive indoor tree with proper care.",
+    },
+    10: {
+      name: "String of Pearls",
+      image: "https://images.unsplash.com/photo-1648070024741-43f8fa965966?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+      price: 21.99,
+      rating: 4.5,
+      reviews: 63,
+      description: "String of Pearls features unique bead-like leaves that cascade down from hanging planters, creating a stunning living necklace effect.",
+      longDescription: "Native to southwest Africa, String of Pearls (Senecio rowleyanus) is a striking succulent vine with unusual spherical leaves evolved to minimize water loss and maximize light absorption. As a houseplant, it's treasured for its distinctive trailing appearance that adds visual interest to shelves and hanging planters.",
+    },
+    11: {
+      name: "Bird of Paradise",
+      image: "https://plus.unsplash.com/premium_photo-1674473872726-f59a276c4287?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmlyZCUyMG9mJTIwcGFyYWRpc2V8ZW58MHx8MHx8fDA%3D",
+      price: 39.99,
+      rating: 4.6,
+      reviews: 94,
+      description: "The Bird of Paradise plant features dramatic paddle-shaped leaves that create a striking tropical statement in any space.",
+      longDescription: "Native to South Africa, the Bird of Paradise (Strelitzia nicolai) is named for its unusual flowers that resemble exotic birds. As a houseplant, it's primarily grown for its impressive, banana-like foliage that adds a bold tropical element to interiors. With proper care and sufficient light, mature plants may produce the iconic bird-shaped flowers.",
+    },
+    12: {
+      name: "Chinese Money Plant",
+      image: "https://images.unsplash.com/photo-1714674119508-6676b71d3bf7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+      price: 23.99,
+      rating: 4.8,
+      reviews: 108,
+      description: "The Chinese Money Plant features distinctive round, coin-shaped leaves on arching stems, creating an elegant and playful appearance.",
+      longDescription: "Native to southern China, the Chinese Money Plant (Pilea peperomioides) has become incredibly popular in recent years for its quirky, coin-like leaves and easy care. According to feng shui tradition, it's believed to bring good fortune and prosperity to its owner, hence its common name.",
+    },
+  }[parseInt(params.id)] || {
     name: "Monstera Deliciosa",
-    image:
-      "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+    image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
     price: 29.99,
     rating: 4.9,
     reviews: 128,
-    description:
-      "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
-    longDescription:
-      "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
+    description: "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is famous for its quirky natural leaf holes. These tropical plants are easy to care for and can add a jungle feel to your home.",
+    longDescription: "Native to the tropical forests of southern Mexico and Panama, the Monstera Deliciosa is a climbing evergreen that can reach heights of 20 meters in its natural habitat. The distinctive holes in its leaves are a natural adaptation that allows wind to pass through, preventing the plant from being uprooted during storms.",
   }
 
   return (
@@ -661,7 +718,7 @@ export default async function PlantDetailPage({ params }: { params: { id: string
                       </li>
                       <li className="flex justify-between">
                         <span className="text-muted-foreground">Pick up location</span>
-                        <span>{sellerData.location}</span>
+                        <span>{sellerData[1]?.location}</span>
                       </li>
                       <li className="flex justify-between">
                         <span className="text-muted-foreground">Costo spedizione</span>
