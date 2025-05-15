@@ -268,7 +268,7 @@ export default function PlantsittingPage() {
   const sortedSitter = [...filteredSitter].sort((a, b) => {
     switch (sortBy) {
       case "distance":
-        return b.distance - a.distance;
+        return a.distance - b.distance;  // Fixed: now sorts from closest to farthest
       case "price-low":
         return a.price - b.price;
       case "price-high":
@@ -286,16 +286,18 @@ export default function PlantsittingPage() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-heading">
-            <Image
-              src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
-              alt="Rootsy Logo"
-              width={100}
-              height={100}
-              className="h-12 w-auto object-contain"
-            />
-          </Link>
-          <nav className="hidden md:flex gap-6">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
+          </div>
+          <nav className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
               Marketplace
             </Link>

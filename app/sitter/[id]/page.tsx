@@ -6,25 +6,28 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function SitterDetailPage({ params }: { params: { id: string } }) {
-  // Dati fittizi dei plant sitter
-  const sitterData = {
+export default async function SitterDetailPage({ params }: { params: { id: string } }) {
+  // Convert id to number for lookup
+  const sitterId = parseInt(params.id);
+
+  // Define all sitter data
+  const allSitterData = {
     1: {
       id: "1",
-      name: "Elena Bianchi",
+      name: "Sarah Johnson",
       location: "Milan, Italy",
       distance: "2.5 km",
       rating: 4.9,
       reviews: 124,
       hourlyRate: 15,
-      memberSince: "Jenuary 2023",
+      memberSince: "January 2023",
       responseTime: "< 1 hour",
       completedJobs: 87,
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150&auto=format&fit=crop",
       coverImage:
         "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "I am a biologist with a passion for houseplants. I have over 50 plants in my home and have been offering professional plant sitting services for over 3 years. I take care of your plants as if they were my own!",
+      bio: "Plant enthusiast with 5+ years of experience caring for all types of indoor plants. I take care of your plants as if they were my own!",
       specialties: ["Tropical Plants", "Orchids", "Rare Plants", "Bonsai"],
       services: [
         {
@@ -71,21 +74,21 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
     },
     2: {
       id: "2",
-      name: "Marco Rossi",
+      name: "Michael Chen",
       location: "Roma, Italy",
-      distance: "3.8 km",
-      rating: 4.7,
+      distance: "3.2 km",
+      rating: 4.8,
       reviews: 98,
       hourlyRate: 18,
       memberSince: "March 2022",
       responseTime: "< 2 hours",
       completedJobs: 112,
       avatar:
-        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=150&auto=format&fit=crop",
       coverImage:
-        "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "Professional gardener with decades of experience in the care of indoor and outdoor plants. Specialized in Mediterranean plants and succulents. I offer plant sitting services and advice for the optimal care of your plants.",
-      specialties: ["Succulents", "Mediterranean plants", "Outdoor plants", "Aromatic herbs"],
+        "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1200&auto=format&fit=crop",
+      bio: "Certified botanist specializing in tropical plants and succulents. I offer plant sitting services and advice for the optimal care of your plants.",
+      specialties: ["Succulents", "Mediterranean plants", "Tropical Plants", "Aromatic herbs"],
       services: [
         {
           name: "Daily visit",
@@ -104,7 +107,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
             "One-hour consultation to assess the health of your plants and provide personalized advice.",
         },
         {
-          name: "Treatment antiparasitico",
+          name: "Pest Control",
           price: 35,
           description: "Complete treatment against parasites and plant diseases with natural products.",
         },
@@ -119,29 +122,29 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
         { day: "Sunday", hours: "Closed" },
       ],
       education: [
-        { title: "Diploma in Agraria", institution: "Istituto Tecnico Agrario di Roma", year: "2010" },
-        { title: "Professional Gardening Course", institution: "Scuola di Giardinaggio di Roma", year: "2012" },
-        { title: "Certificazione in Permacultura", institution: "Accademia Italiana di Permacultura", year: "2015" },
+        { title: "Diploma in Botany", institution: "University of Rome", year: "2010" },
+        { title: "Professional Gardening Course", institution: "Botanical Garden of Rome", year: "2012" },
+        { title: "Certification in Permaculture", institution: "Italian Permaculture Academy", year: "2015" },
       ],
-      languages: ["Italian", "English"],
+      languages: ["Italian", "English", "Chinese"],
     },
     3: {
       id: "3",
-      name: "Sofia Verdi",
+      name: "Emma Rodriguez",
       location: "Firenze, Italy",
-      distance: "1.2 km",
-      rating: 5.0,
+      distance: "1.8 km",
+      rating: 4.7,
       reviews: 76,
       hourlyRate: 20,
       memberSince: "June 2021",
       responseTime: "< 30 minutes",
       completedJobs: 94,
       avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
       coverImage:
-        "https://images.unsplash.com/photo-1591958911259-bee2173bdccc?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-      bio: "Passionate about botany and floriculture. I studied Natural Sciences and specialized in the care of rare and tropical plants. I offer high quality plant sitting services with attention to detail and the specific needs of each plant.",
-      specialties: ["Rare plants", "Ferns", "Carnivorous plants", "Orchids"],
+        "https://images.unsplash.com/photo-1591958911259-bee2173bdccc?q=80&w=1200&auto=format&fit=crop",
+      bio: "Passionate plant lover with expertise in rare and exotic species. I offer high quality plant sitting services with attention to detail and the specific needs of each plant.",
+      specialties: ["Rare plants", "Ferns", "Plant Health", "Pruning"],
       services: [
         {
           name: "Daily visit",
@@ -159,7 +162,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
           description: "Specialized consultancy for the care of rare and delicate plants.",
         },
         {
-          name: "Reproduction and propagation",
+          name: "Propagation",
           price: 40,
           description: "Propagation service to multiply your favorite plants.",
         },
@@ -182,82 +185,168 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
           year: "2020",
         },
       ],
-      languages: ["Italian", "English", "French"],
+      languages: ["Italian", "English", "Spanish"],
     },
-  }[params.id as unknown as number] || {
-    id: "1",
-    name: "Elena Bianchi",
-    location: "Milano, Italy",
-    distance: "2.5 km",
-    rating: 4.9,
-    reviews: 124,
-    hourlyRate: 15,
-    memberSince: "Jenuary 2023",
-    responseTime: "< 1 hour",
-    completedJobs: 87,
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
-    coverImage:
-      "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-    bio: "I am a biologist with a passion for indoor plants. I have over 50 plants in my home and have been offering professional plant sitting services for over 3 years. I take care of your plants as if they were my own!",
-    specialties: ["Tropical Plants", "Orchids", "Rare Plants", "Bonsai"],
-    services: [
-      {
-        name: "Daily Visit",
-        price: 15,
-        description: "Daily visit to water, check and care for your plants.",
-      },
-      {
-        name: "Weekly Package",
-        price: 90,
-        description: "Daily visits for a week, includes watering, fertilizing and general care.",
-      },
-      {
-        name: "Plant Consultation",
-        price: 40,
-        description: "One hour consultation to assess the health of your plants and provide personalized advice.",
-      },
-      {
-        name: "Transplanting and Pruning",
-        price: 25,
-        description: "Transplanting and pruning service for your plants, includes quality soil.",
-      },
-    ],
-    availability: [
-      { day: "Monday", hours: "9:00 - 18:00" },
-      { day: "Tuesday", hours: "9:00 - 18:00" },
-      { day: "Wednesday", hours: "9:00 - 18:00" },
-      { day: "Thursday", hours: "9:00 - 18:00" },
-      { day: "Friday", hours: "9:00 - 18:00" },
-      { day: "Saturday", hours: "10:00 - 15:00" },
-      { day: "Sunday", hours: "Closed" },
-    ],
-    education: [
-      { title: "Graduation in Biological Sciences", institution: "Università di Milano", year: "2018" },
-      { title: "Advanced Botany Course", institution: "Orto Botanico di Brera", year: "2020" },
-      {
-        title: "Certification in Tropical Plant Care",
-        institution: "Associazione Botanica Italiana",
-        year: "2021",
-      },
-    ],
-    languages: ["Italian", "English", "Spanish"],
+    4: {
+      id: "4",
+      name: "David Kim",
+      location: "Milan, Italy",
+      distance: "4.1 km",
+      rating: 4.6,
+      reviews: 15,
+      hourlyRate: 14,
+      memberSince: "August 2023",
+      responseTime: "< 3 hours",
+      completedJobs: 42,
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+      coverImage:
+        "https://images.unsplash.com/photo-1590622783586-e5d3d07df951?q=80&w=1200&auto=format&fit=crop",
+      bio: "Horticulture student with a focus on indoor plant ecosystems. I have a passion for creating balanced growing environments for all types of houseplants.",
+      specialties: ["Indoor Plants", "Light Management", "Fertilizing", "Plant Ecosystems"],
+      services: [
+        {
+          name: "Daily care",
+          price: 14,
+          description: "Daily visit for basic plant care and watering.",
+        },
+        {
+          name: "Weekly package",
+          price: 85,
+          description: "Complete care for your plants throughout the week.",
+        },
+        {
+          name: "Light assessment",
+          price: 30,
+          description: "Evaluation of your home's light conditions and plant placement recommendations.",
+        },
+        {
+          name: "Fertilization plan",
+          price: 25,
+          description: "Custom fertilization schedule based on your plants' specific needs.",
+        },
+      ],
+      availability: [
+        { day: "Monday", hours: "13:00 - 20:00" },
+        { day: "Tuesday", hours: "13:00 - 20:00" },
+        { day: "Wednesday", hours: "13:00 - 20:00" },
+        { day: "Thursday", hours: "13:00 - 20:00" },
+        { day: "Friday", hours: "13:00 - 20:00" },
+        { day: "Saturday", hours: "10:00 - 18:00" },
+        { day: "Sunday", hours: "10:00 - 18:00" },
+      ],
+      education: [
+        { title: "Bachelor of Science in Horticulture (in progress)", institution: "University of Milan", year: "2023-present" },
+        { title: "Certificate in Indoor Plant Care", institution: "Milan Botanical Garden", year: "2022" },
+      ],
+      languages: ["Italian", "English", "Korean"],
+    },
+    // Add more sitters as needed
+  };
+
+  // Add more sitters to match all the IDs from the plantsitting page
+  for (let i = 5; i <= 9; i++) {
+    if (!allSitterData[i as keyof typeof allSitterData]) {
+      const names = ["Olivia Martinez", "James Wilson", "Sophia Lee", "Ethan Brown", "Ava Thompson"];
+      const locations = ["Turin, Italy", "Florence, Italy", "Naples, Italy", "Venice, Italy", "Bologna, Italy"];
+      const distances = ["2.3 km", "3.7 km", "1.5 km", "5.2 km", "2.8 km"];
+      const avatars = [
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"
+      ];
+      const idx = i - 5;
+
+      allSitterData[i as keyof typeof allSitterData] = {
+        id: i.toString(),
+        name: names[idx] || `Plant Sitter ${i}`,
+        location: locations[idx] || "Italy",
+        distance: distances[idx] || "3.0 km",
+        rating: 4.5 + (idx * 0.1),
+        reviews: 15 + (idx * 5),
+        hourlyRate: 15 + idx,
+        memberSince: "January 2023",
+        responseTime: "< 2 hours",
+        completedJobs: 50 + (idx * 10),
+        avatar: avatars[idx] || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop",
+        coverImage: "https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?q=80&w=1200&auto=format&fit=crop",
+        bio: "Experienced plant caretaker with a passion for all types of indoor and outdoor plants.",
+        specialties: ["Indoor Plants", "Outdoor Plants", "Seasonal Care", "Plant Health"],
+        services: [
+          {
+            name: "Daily care",
+            price: 15 + idx,
+            description: "Daily visit for plant care and watering.",
+          },
+          {
+            name: "Weekly package",
+            price: 90 + (idx * 5),
+            description: "Complete care package for one week.",
+          },
+          {
+            name: "Plant health check",
+            price: 35,
+            description: "Thorough assessment of your plants' health and care needs.",
+          },
+          {
+            name: "Special care service",
+            price: 40,
+            description: "Specialized care for exotic or sensitive plants.",
+          },
+        ],
+        availability: [
+          { day: "Monday", hours: "9:00 - 18:00" },
+          { day: "Tuesday", hours: "9:00 - 18:00" },
+          { day: "Wednesday", hours: "9:00 - 18:00" },
+          { day: "Thursday", hours: "9:00 - 18:00" },
+          { day: "Friday", hours: "9:00 - 18:00" },
+          { day: "Saturday", hours: "10:00 - 15:00" },
+          { day: "Sunday", hours: "Closed" },
+        ],
+        education: [
+          { title: "Plant Care Certification", institution: "Italian Botanical Association", year: "2020" },
+          { title: "Gardening Course", institution: "Community Garden School", year: "2019" },
+        ],
+        languages: ["Italian", "English"],
+      };
+    }
   }
+
+  // Get sitter data with fallback to sitter #1 if not found
+  const sitterData = allSitterData[sitterId as keyof typeof allSitterData] || allSitterData[1];
+
+  // Determine which sitters to show in "Other sitters in your area" section
+  // Get 2 random sitters that aren't the current one
+  const getRelatedSitters = () => {
+    const availableSitterIds = Object.keys(allSitterData)
+      .map(id => parseInt(id))
+      .filter(id => id !== sitterId)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
+
+    return availableSitterIds.map(id => allSitterData[id as keyof typeof allSitterData]);
+  };
+
+  const relatedSitters = getRelatedSitters();
 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-heading">
-            <Image
-              src="/images/logo.png" // Percorso al tuo file logo.jpg nella cartella public
-              alt="Rootsy Logo"
-              width={100}
-              height={100}
-              className="h-14 w-auto object-contain"
-            />
-          </Link>
-          <nav className="hidden md:flex gap-6">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="Rootsy Logo"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
+          </div>
+          <nav className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
             <Link href="/marketplace" className="text-sm font-medium hover:text-green-600 transition-colors">
               Marketplace
             </Link>
@@ -323,7 +412,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
 
         <div className="container py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Colonna sinistra - Profilo */}
+            {/* Left column - Profile */}
             <div className="md:col-span-1">
               <div className="relative -mt-20 mb-6">
                 <div className="h-32 w-32 rounded-full overflow-hidden border-4 border-white bg-white">
@@ -407,7 +496,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
                     {sitterData.availability.map((slot) => (
                       <div key={slot.day} className="flex justify-between">
                         <span className="font-medium">{slot.day}</span>
-                        <span className={slot.hours === "Chiuso" ? "text-red-500" : ""}>{slot.hours}</span>
+                        <span className={slot.hours === "Closed" ? "text-red-500" : ""}>{slot.hours}</span>
                       </div>
                     ))}
                   </div>
@@ -420,7 +509,7 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
               </div>
             </div>
 
-            {/* Colonna destra - Contenuto principale */}
+            {/* Right column - Main content */}
             <div className="md:col-span-2">
               <Tabs defaultValue="about" className="w-full">
                 <TabsList className="w-full grid grid-cols-3 mb-8">
@@ -695,92 +784,58 @@ export default function SitterDetailPage({ params }: { params: { id: string } })
           <div className="mt-12">
             <h2 className="text-2xl font-heading mb-6">Other plantsitter in your area</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  id: params.id === "1" ? "2" : "1",
-                  name: params.id === "1" ? "Marco Rossi" : "Elena Bianchi",
-                  location: params.id === "1" ? "Roma, Italia" : "Milano, Italia",
-                  rating: params.id === "1" ? 4.7 : 4.9,
-                  reviews: params.id === "1" ? 98 : 124,
-                  hourlyRate: params.id === "1" ? 18 : 15,
-                  avatar:
-                    params.id === "1"
-                      ? "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
-                      : "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
-                  coverImage:
-                    params.id === "1"
-                      ? "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
-                      : "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-                  specialties:
-                    params.id === "1" ? ["Succulente", "Piante mediterranee"] : ["Piante tropicali", "Orchidee"],
-                },
-                {
-                  id: "3",
-                  name: "Sofia Verdi",
-                  location: "Firenze, Italy",
-                  rating: 5.0,
-                  reviews: 76,
-                  hourlyRate: 20,
-                  avatar:
-                    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3",
-                  coverImage:
-                    "https://images.unsplash.com/photo-1591958911259-bee2173bdccc?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
-                  specialties: ["Rare plants", "Ferns"],
-                },
-              ]
-                .filter((sitter) => sitter.id !== params.id)
-                .map((sitter) => (
-                  <Link href={`/sitter/${sitter.id}`} key={sitter.id} className="group">
-                    <div className="border rounded-lg overflow-hidden transition-all hover:shadow-md">
-                      <div className="relative h-48 w-full">
-                        <Image
-                          src={sitter.coverImage || "/placeholder.svg"}
-                          alt={sitter.name}
-                          fill
-                          className="object-cover transition-transform group-hover:scale-105"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                          <div className="flex items-center gap-3">
-                            <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-white">
-                              <Image
-                                src={sitter.avatar || "/placeholder.svg"}
-                                alt={sitter.name}
-                                width={48}
-                                height={48}
-                                className="object-cover"
-                              />
-                            </div>
-                            <div className="text-white">
-                              <h3 className="font-heading">{sitter.name}</h3>
-                              <div className="flex items-center text-sm">
-                                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400 mr-1" />
-                                <span>
-                                  {sitter.rating} ({sitter.reviews})
-                                </span>
-                              </div>
+              {relatedSitters.map((sitter) => (
+                <Link href={`/sitter/${sitter.id}`} key={sitter.id} className="group">
+                  <div className="border rounded-lg overflow-hidden transition-all hover:shadow-md">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={sitter.coverImage || "/placeholder.svg"}
+                        alt={sitter.name}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                        <div className="flex items-center gap-3">
+                          <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-white">
+                            <Image
+                              src={sitter.avatar || "/placeholder.svg"}
+                              alt={sitter.name}
+                              width={48}
+                              height={48}
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="text-white">
+                            <h3 className="font-heading">{sitter.name}</h3>
+                            <div className="flex items-center text-sm">
+                              <Star className="h-3 w-3 fill-yellow-400 text-yellow-400 mr-1" />
+                              <span>
+                                {sitter.rating} ({sitter.reviews})
+                              </span>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center text-sm text-muted-foreground">
-                            <MapPin className="h-4 w-4 mr-1" />
-                            {sitter.location}
-                          </div>
-                          <span className="font-semibold text-green-600">€{sitter.hourlyRate}/hour</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2 mt-3">
-                          {sitter.specialties.map((specialty) => (
-                            <Badge key={specialty} variant="outline" className="bg-green-50 text-xs">
-                              {specialty}
-                            </Badge>
-                          ))}
                         </div>
                       </div>
                     </div>
-                  </Link>
-                ))}
+                    <div className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {sitter.location}
+                        </div>
+                        <span className="font-semibold text-green-600">€{sitter.hourlyRate}/hour</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {sitter.specialties.slice(0, 2).map((specialty) => (
+                          <Badge key={specialty} variant="outline" className="bg-green-50 text-xs">
+                            {specialty}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
