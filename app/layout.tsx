@@ -5,18 +5,6 @@ import "./globals.css"
 import { AuthProvider } from "@/contexts/auth-context"
 
 // Import Arbutus Slab as a local font
-// const arbutusSlab = localFont({
-//   src: [
-//     {
-//       path: "../public/fonts/ArbutusSlab-Regular.ttf",
-//       weight: "400",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-arbutus-slab",
-// })
-
-// Import MyriadPro
 const arbutusSlab = localFont({
   src: [
     {
@@ -42,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${arbutusSlab.variable} font-roc`}>
+      <body className={`${arbutusSlab.variable} font-arbutus-slab`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

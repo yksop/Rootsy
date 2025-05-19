@@ -1,4 +1,7 @@
-import { Leaf } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Leaf, X } from "lucide-react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -42,6 +45,8 @@ const team = [
 ];
 
 export default function AboutPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -108,7 +113,12 @@ export default function AboutPage() {
                 Sign up
               </Button>
             </Link>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button
+              variant="outline"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(true)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -128,6 +138,72 @@ export default function AboutPage() {
             </Button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm md:hidden">
+            <div className="fixed inset-y-0 right-0 w-full max-w-sm border-l bg-background p-6 shadow-lg">
+              <div className="flex items-center justify-between">
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Rootsy Logo"
+                    width={80}
+                    height={80}
+                    className="h-10 w-auto object-contain"
+                  />
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <X className="h-5 w-5" />
+                  <span className="sr-only">Close</span>
+                </Button>
+              </div>
+              <nav className="mt-8 flex flex-col gap-6">
+                <Link
+                  href="/marketplace"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Marketplace
+                </Link>
+                <Link
+                  href="/plantsitting"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Plant Sitting
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-base font-medium text-green-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <div className="h-px w-full bg-border" />
+                <Link
+                  href="/login"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Button className="w-full bg-green-600 hover:bg-green-700">
+                    Sign up
+                  </Button>
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
       <main className="flex-1">
         <div className="container py-12 max-w-4xl mx-auto">
@@ -211,7 +287,10 @@ export default function AboutPage() {
             <h2 className="text-2xl font-heading mb-6 text-center">Our Team</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
               {team.map((member, i) => (
-                <div key={i} className="text-center flex flex-col items-center">
+                <div
+                  key={i}
+                  className="text-center flex flex-col items-center"
+                >
                   <div className="relative h-[200px] w-[200px] rounded-full overflow-hidden mb-4">
                     <Image
                       src={member.image}

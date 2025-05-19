@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Filter, MapPin, Search, SlidersHorizontal, Star } from "lucide-react"
+import { Filter, MapPin, Search, SlidersHorizontal, Star, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 
 export default function PlantsittingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("distance");
   const [priceRange, setPriceRange] = useState([0, 50]);
@@ -340,7 +341,12 @@ export default function PlantsittingPage() {
             <Link href="/signup">
               <Button className="hidden md:flex bg-green-600 hover:bg-green-700">Sign up</Button>
             </Link>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button
+              variant="outline"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(true)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -360,6 +366,66 @@ export default function PlantsittingPage() {
             </Button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm md:hidden">
+            <div className="fixed inset-y-0 right-0 w-full max-w-sm border-l bg-background p-6 shadow-lg">
+              <div className="flex items-center justify-between">
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Rootsy Logo"
+                    width={80}
+                    height={80}
+                    className="h-10 w-auto object-contain"
+                  />
+                </Link>
+                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+                  <X className="h-5 w-5" />
+                  <span className="sr-only">Close</span>
+                </Button>
+              </div>
+              <nav className="mt-8 flex flex-col gap-6">
+                <Link
+                  href="/marketplace"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Marketplace
+                </Link>
+                <Link
+                  href="/plantsitting"
+                  className="text-base font-medium text-green-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Plant Sitting
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <div className="h-px w-full bg-border" />
+                <Link
+                  href="/login"
+                  className="text-base font-medium hover:text-green-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Button className="w-full bg-green-600 hover:bg-green-700">Sign up</Button>
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
       <main className="flex-1">
         <div className="relative">
