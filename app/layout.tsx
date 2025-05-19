@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 import { AuthProvider } from "@/contexts/auth-context"
+import ClientAlertWrapper from "@/components/client-alert-wrapper"
 
-// Import Arbutus Slab as a local font
+// Import MyriadPro
 const arbutusSlab = localFont({
   src: [
     {
@@ -31,7 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${arbutusSlab.variable} font-arbutus-slab`}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <ClientAlertWrapper />
+        </AuthProvider>
       </body>
     </html>
   )
