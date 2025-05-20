@@ -13,7 +13,7 @@ const team = [
     name: "Gaia Tognazzi",
     role: "CEO",
     image:
-      "https://plus.unsplash.com/premium_photo-1738740636827-f37586440c67?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/images/photo_2025-05-20_15-56-55.jpg",
   },
   {
     name: "Marianna Seck",

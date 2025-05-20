@@ -14,7 +14,7 @@ const arbutusSlab = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-roc-grotesk",
+  variable: "--font-arbutus-slab",
   display: "swap",
 })
 
