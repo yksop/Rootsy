@@ -69,7 +69,7 @@ export default function MarketplacePage() {
       price: 29.99,
       rating: 4.8,
       image:
-        "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F_RxKTB2LvppM%2FS2NOOEY8qZI%2FAAAAAAAAA0M%2F0v0vBMJBV-o%2Fs400%2FMonstera%2Bpost%2Bshower%2B2%2Bcmp.jpg&f=1&nofb=1&ipt=0476a845a62c61c963c63debec1cbce67d991512c72f541f89551c69156d2f36",
       lightLevel: "Medium light • Moderate",
       careLevel: "Easy",
     },
@@ -79,7 +79,7 @@ export default function MarketplacePage() {
       price: 24.99,
       rating: 4.7,
       image:
-        "https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftechnofaq.org%2Fwp-content%2Fuploads%2F2017%2F04%2FSnake-Plant-713x1024.jpg&f=1&nofb=1&ipt=eb754c3b5c9478f07516525f049913437318e540585c13fed60b84b529852812",
       lightLevel: "Low light • Easy care",
       careLevel: "Easy",
     },
@@ -89,7 +89,7 @@ export default function MarketplacePage() {
       price: 34.99,
       rating: 4.6,
       image:
-        "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fterragreenhouses.com%2Fwp-content%2Fuploads%2F2020%2F08%2FFiddle-Leaf-Fig-10-Inch-Grower-Pot-scaled.jpg&f=1&nofb=1&ipt=b2c88ddea8209a4106bcba0af15a1fcb70dc4f54b8d5d61a2372925e663bd203",
       lightLevel: "Bright light • Regular water",
       careLevel: "Moderate",
     },
@@ -99,7 +99,7 @@ export default function MarketplacePage() {
       price: 19.99,
       rating: 4.9,
       image:
-        "https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flive.staticflickr.com%2F1411%2F1409790495_4b2c5ca74a_b.jpg&f=1&nofb=1&ipt=a4be47c332aec27907f0611571887f548de2eb1a44f6b7e9d1b811bb6a471cf3",
       lightLevel: "Low to bright light • Easy care",
       careLevel: "Easy",
     },
@@ -109,7 +109,7 @@ export default function MarketplacePage() {
       price: 22.99,
       rating: 4.8,
       image:
-        "https://plus.unsplash.com/premium_photo-1669870413077-93390b44baf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WlolMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbp0.blogger.com%2F_eaKbvlcIK10%2FR5x_UNEuRYI%2FAAAAAAAAAss%2FZvN90kdrmpU%2Fs400%2Fhomalomena%2Bemerald%2Bgem%2B(own)2.jpg&f=1&nofb=1&ipt=d2460025b208fc0e33785d76cbf9674a9d41d09e0cbfeecebe4de71bb517881a",
       lightLevel: "Low light • Drought tolerant",
       careLevel: "Easy",
     },
@@ -119,7 +119,7 @@ export default function MarketplacePage() {
       price: 27.99,
       rating: 4.5,
       image:
-        "https://images.unsplash.com/photo-1637967886160-fd78dc3ce3f5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flive.staticflickr.com%2F65535%2F47784340922_929925ed5c_b.jpg&f=1&nofb=1&ipt=d1a552bd084f52267035d2757a530fa8bfe88d609461cf400b34ccfec7e51317",
       lightLevel: "Medium light • High humidity",
       careLevel: "Moderate",
     },
@@ -129,7 +129,7 @@ export default function MarketplacePage() {
       price: 18.99,
       rating: 4.7,
       image:
-        "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8QWxvZSUyMHZlcmF8ZW58MHx8MHx8fDA%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F_eaKbvlcIK10%2FTToKQqJeU5I%2FAAAAAAAAKPA%2FcDpTBZsQhiY%2Fs1600%2Fagave%252Bvictoriae-reginae%252B%252528own%2525293.jpg&f=1&nofb=1&ipt=084055765b30e5d1f4ed1805495a8f1fce2f2fecf91db9a09258e97079844120",
       lightLevel: "Bright light • Drought tolerant",
       careLevel: "Easy",
     },
@@ -139,7 +139,7 @@ export default function MarketplacePage() {
       price: 25.99,
       rating: 4.6,
       image:
-        "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbugwoodcloud.org%2Fimages%2F1536x1024%2F5563982.jpg&f=1&nofb=1&ipt=31f7a8d96b18bd69785062718d14849ef7d0aa26072040e355390e7c45003076",
       lightLevel: "Low to medium light • Regular water",
       careLevel: "Easy",
     },
@@ -149,7 +149,7 @@ export default function MarketplacePage() {
       price: 32.99,
       rating: 4.7,
       image:
-        "https://images.unsplash.com/photo-1669392597221-bbfd4b6e13ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UnViYmVyJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffarm3.staticflickr.com%2F2146%2F2489335887_e40d6cc95f_o_d.jpg&f=1&nofb=1&ipt=2d2e6483729ec230d37dc779f04da54f76463a89818f29270d0990c41d98dafd",
       lightLevel: "Medium to bright light • Moderate water",
       careLevel: "Moderate",
     },
@@ -159,7 +159,7 @@ export default function MarketplacePage() {
       price: 21.99,
       rating: 4.5,
       image:
-        "https://images.unsplash.com/photo-1648070024741-43f8fa965966?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3RyaW5nJTIwb2YlMjBwZWFybHMlMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F_eaKbvlcIK10%2FSvhKEitYJQI%2FAAAAAAAAGgE%2FmA2JYubJNzc%2Fs400%2Fsenecio%2Browleyanus%2B(own).jpg&f=1&nofb=1&ipt=2aefff66adf2f0dcb6d42bc603b9a90739e4852ce01f06cc39c75436136ddca8",
       lightLevel: "Bright indirect light • Sparse water",
       careLevel: "Moderate",
     },
@@ -169,7 +169,7 @@ export default function MarketplacePage() {
       price: 39.99,
       rating: 4.6,
       image:
-        "https://plus.unsplash.com/premium_photo-1674473872726-f59a276c4287?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmlyZCUyMG9mJTIwcGFyYWRpc2V8ZW58MHx8MHx8fDA%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flive.staticflickr.com%2F20%2F88125366_55ea40adbd_b.jpg&f=1&nofb=1&ipt=380d9188bf9d37da52dc26fbec06fd9aa7235520263054ab7758ee3229ba8ea9",
       lightLevel: "Bright light • Moderate water",
       careLevel: "Moderate",
     },
@@ -179,7 +179,7 @@ export default function MarketplacePage() {
       price: 23.99,
       rating: 4.8,
       image:
-        "https://images.unsplash.com/photo-1714674119508-6676b71d3bf7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hpbmVzZSUyMG1vbmV5JTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-nM6WvSyR46k%2FVNo92-QRDOI%2FAAAAAAAAQy4%2Fn9omz_zNcdk%2Fs1600%2FPieni%25C4%2585%25C5%25BCek%252Bpilea%252Bpeperomoides.jpg&f=1&nofb=1&ipt=dfb5e6499329d87895df303328a8fac09007b3d737d384f71be7d6442bd0daaa&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hpbmVzZSUyMG1vbmV5JTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
       lightLevel: "Bright indirect light • Moderate water",
       careLevel: "Easy",
     },

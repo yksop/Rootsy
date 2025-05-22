@@ -156,7 +156,7 @@ export default function Home() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Aumentato l'opacità dello sfondo scuro */}
+          <div className="absolute inset-0 bg-black/20 z-10"></div> {/* Aumentato l'opacità dello sfondo scuro */}
           <div className="container absolute inset-0 z-20 flex flex-col items-center justify-center text-center">
             <div className="max-w-3xl p-8 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 relative"> {/* Più contrasto e blur per lo sfondo */}
               <div className="flex items-center justify-center mb-6">
@@ -249,7 +249,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
+                          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F_RxKTB2LvppM%2FS2NOOEY8qZI%2FAAAAAAAAA0M%2F0v0vBMJBV-o%2Fs400%2FMonstera%2Bpost%2Bshower%2B2%2Bcmp.jpg&f=1&nofb=1&ipt=0476a845a62c61c963c63debec1cbce67d991512c72f541f89551c69156d2f36"
                           alt="Monstera Deliciosa"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -271,7 +271,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?q=80&w=2616&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftechnofaq.org%2Fwp-content%2Fuploads%2F2017%2F04%2FSnake-Plant-713x1024.jpg&f=1&nofb=1&ipt=eb754c3b5c9478f07516525f049913437318e540585c13fed60b84b529852812"
                           alt="Snake Plant"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -293,7 +293,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://images.unsplash.com/photo-1545239705-1564e58b9e4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmlkZGxlJTIwTGVhZiUyMEZpZ3xlbnwwfHwwfHx8MA%3D%3D"
+                          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fterragreenhouses.com%2Fwp-content%2Fuploads%2F2020%2F08%2FFiddle-Leaf-Fig-10-Inch-Grower-Pot-scaled.jpg&f=1&nofb=1&ipt=b2c88ddea8209a4106bcba0af15a1fcb70dc4f54b8d5d61a2372925e663bd203"
                           alt="Fiddle Leaf Fig"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
@@ -315,7 +315,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-lg border bg-white transition-all hover:shadow-md">
                       <div className="relative aspect-square">
                         <Image
-                          src="https://plus.unsplash.com/premium_photo-1673969608398-18921179fa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG90aG9zfGVufDB8fDB8fHww"
+                          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flive.staticflickr.com%2F1411%2F1409790495_4b2c5ca74a_b.jpg&f=1&nofb=1&ipt=a4be47c332aec27907f0611571887f548de2eb1a44f6b7e9d1b811bb6a471cf3"
                           alt="Pothos"
                           fill
                           className="object-cover transition-transform group-hover:scale-105"
